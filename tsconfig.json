@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"outDir": "./assets/dist/",
+		"sourceMap": true,
+		"target": "es5",
+		"lib": ["es5", "es6", "dom"]
+	},
+	"include": ["./assets/scripts/**/*"]
+}
