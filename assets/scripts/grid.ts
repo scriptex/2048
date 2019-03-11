@@ -62,7 +62,7 @@ export default class Grid {
 
 		this.eachCell((x: number, y: number, tile: Tile) => {
 			if (!tile) {
-				cells.push({ x: x, y: y });
+				cells.push({ x, y });
 			}
 		});
 
