@@ -20,7 +20,7 @@ function autoversion($url) {
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title>{ Project Name }</title>
+	<title>2048 | Join the numbers and get to the 2048 tile!</title>
 
 	<!--
 	For more info about the favicons and meta tags below see
@@ -40,15 +40,15 @@ function autoversion($url) {
 	<link rel="icon" type="image/png" href="assets/images/favicon-16x16.png" sizes="16x16" />
 	<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128" />
 	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
-	<meta name="application-name" content="{ Project Name }"/>
-	<meta name="msapplication-TileColor" content="#000000" />
+	<meta name="application-name" content="2048"/>
+	<meta name="msapplication-TileColor" content="#edc22e" />
 	<meta name="msapplication-TileImage" content="assets/images/mstile-144x144.png" />
 	<meta name="msapplication-square70x70logo" content="assets/images/mstile-70x70.png" />
 	<meta name="msapplication-square150x150logo" content="assets/images/mstile-150x150.png" />
 	<meta name="msapplication-wide310x150logo" content="assets/images/mstile-310x150.png" />
 	<meta name="msapplication-square310x310logo" content="assets/images/mstile-310x310.png" />
 	<meta name="msapplication-config" content="config.xml" />
-	<meta name="theme-color" content="#000000" />
+	<meta name="theme-color" content="#edc22e" />
 
 	<?php critical_css(); ?>
 
@@ -56,13 +56,7 @@ function autoversion($url) {
 </head>
 <body>
 	<div class="container">
-		<div class="heading">
-			<h1 class="title">2048</h1>
-
-			<div class="score-container">0</div>
-		</div>
-
-		<p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
+		<div class="score-container">0</div>
 
 		<div class="game-container">
 			<div class="game-message">
