@@ -1,4 +1,4 @@
-import { Position } from './tile';
+import Tile, { Position } from './tile';
 
 export default class Grid {
 	public size: number;
@@ -11,9 +11,45 @@ export default class Grid {
 		this.build();
 	}
 
-	build = () => {
+	public getAvailableCell = (): Position => {
+		const cells: Position[] = this.availableCells();
+
+		if (!cells.length) {
+			return;
+		}
+
+		return cells[Math.floor(Math.random() * cells.length)];
+	};
+
+	public eachCell = (callback: (x: number, y: number, tile: Tile) => void): void => {
 		for (let x = 0; x < this.size; x++) {
-			const row = (this.cells[x] = []);
+			for (let y = 0; y < this.size; y++) {
+				callback(x, y, this.cells[x][y]);
+			}
+		}
+	};
+
+	public hasCellsAvailable = (): boolean => !!this.availableCells().length;
+
+	public isCellAvailable = (cell: Position): boolean => !this.isCellOccupied(cell);
+
+	public getCellContent = (cell: Position): Tile => (this.isInBounds(cell) ? this.cells[cell.x][cell.y] : null);
+
+	public insertTile = (tile: Position): void => {
+		this.cells[tile.x][tile.y] = tile;
+	};
+
+	public removeTile = (tile: Position): void => {
+		this.cells[tile.x][tile.y] = null;
+	};
+
+	public isInBounds = (position: Position): boolean => {
+		return position.x >= 0 && position.x < this.size && position.y >= 0 && position.y < this.size;
+	};
+
+	private build = (): void => {
+		for (let x = 0; x < this.size; x++) {
+			const row: Position[] = (this.cells[x] = []);
 
 			for (let y = 0; y < this.size; y++) {
 				row.push(null);
@@ -21,18 +57,10 @@ export default class Grid {
 		}
 	};
 
-	randomAvailableCell = () => {
-		const cells = this.availableCells();
+	private availableCells = (): Position[] => {
+		const cells: Position[] = [];
 
-		if (cells.length) {
-			return cells[Math.floor(Math.random() * cells.length)];
-		}
-	};
-
-	availableCells = () => {
-		const cells = [];
-
-		this.eachCell((x, y, tile) => {
+		this.eachCell((x: number, y: number, tile: Tile) => {
 			if (!tile) {
 				cells.push({ x: x, y: y });
 			}
@@ -41,31 +69,5 @@ export default class Grid {
 		return cells;
 	};
 
-	eachCell = callback => {
-		for (let x = 0; x < this.size; x++) {
-			for (let y = 0; y < this.size; y++) {
-				callback(x, y, this.cells[x][y]);
-			}
-		}
-	};
-
-	cellsAvailable = () => !!this.availableCells().length;
-
-	cellAvailable = cell => !this.cellOccupied(cell);
-
-	cellOccupied = cell => !!this.cellContent(cell);
-
-	cellContent = cell => (this.withinBounds(cell) ? this.cells[cell.x][cell.y] : null);
-
-	insertTile = tile => {
-		this.cells[tile.x][tile.y] = tile;
-	};
-
-	removeTile = tile => {
-		this.cells[tile.x][tile.y] = null;
-	};
-
-	withinBounds = (position: Position) => {
-		return position.x >= 0 && position.x < this.size && position.y >= 0 && position.y < this.size;
-	};
+	private isCellOccupied = (cell: Position): boolean => !!this.getCellContent(cell);
 }

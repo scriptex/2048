@@ -4,27 +4,25 @@ export interface Position {
 }
 
 export default class Tile {
+	public x: Position['x'];
+	public y: Position['y'];
 	public value: number;
 	public mergedFrom: [any, any];
-	public previousPosition: Position;
-
-	private x: Position['x'];
-	private y: Position['y'];
+	public prevPosition: Position;
 
 	constructor(position: Position, value: number) {
 		this.x = position.x;
 		this.y = position.y;
 		this.value = value || 2;
-
-		this.previousPosition = null;
-		this.mergedFrom = null; // Tracks tiles that merged together
+		this.mergedFrom = null;
+		this.prevPosition = null;
 	}
 
-	savePosition = () => {
-		this.previousPosition = { x: this.x, y: this.y };
+	public save = (): void => {
+		this.prevPosition = { x: this.x, y: this.y };
 	};
 
-	updatePosition = (position: Position) => {
+	public update = (position: Position): void => {
 		this.x = position.x;
 		this.y = position.y;
 	};

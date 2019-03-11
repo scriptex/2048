@@ -1,4 +1,11 @@
-import { Position } from './tile';
+import Grid from './grid';
+import Tile, { Position } from './tile';
+
+export interface Metadata {
+	score: number;
+	isOver: boolean;
+	isWin: boolean;
+}
 
 export default class DOMUpdater {
 	private tileContainer: Element;
@@ -15,12 +22,12 @@ export default class DOMUpdater {
 		this.score = 0;
 	}
 
-	update = (grid, metadata) => {
+	public update = (grid: Grid, metadata: Metadata): void => {
 		window.requestAnimationFrame(() => {
 			this.clearContainer(this.tileContainer);
 
-			grid.cells.forEach(column => {
-				column.forEach(cell => {
+			grid.cells.forEach((column: Tile[]) => {
+				column.forEach((cell: Tile) => {
 					if (cell) {
 						this.addTile(cell);
 					}
@@ -29,81 +36,80 @@ export default class DOMUpdater {
 
 			this.updateScore(metadata.score);
 
-			if (metadata.over) {
-				this.message(false);
+			if (metadata.isOver) {
+				this.getMessage(false);
 			}
 
-			if (metadata.won) {
-				this.message(true);
+			if (metadata.isWin) {
+				this.getMessage(true);
 			}
 		});
 	};
 
-	restart = () => {
+	public restart = (): void => {
 		this.clearMessage();
 	};
 
-	clearContainer = container => {
+	private clearContainer = (container: Element): void => {
 		while (container.firstChild) {
 			container.removeChild(container.firstChild);
 		}
 	};
 
-	addTile = tile => {
+	private addTile = (tile: Tile): void => {
 		const element: Element = document.createElement('div');
-		const position: Position = tile.previousPosition || { x: tile.x, y: tile.y };
-		const positionClass: string = this.positionClass(position);
+		const position: Position = tile.prevPosition || { x: tile.x, y: tile.y };
+		const getPositionClass: string = this.getPositionClass(position);
+		const classes: string[] = ['tile', 'tile-' + tile.value, getPositionClass];
 
-		const classes = ['tile', 'tile-' + tile.value, positionClass];
+		this.setClass(element, classes);
 
-		this.applyClasses(element, classes);
+		element.textContent = tile.value.toString();
 
-		element.textContent = tile.value;
-
-		if (tile.previousPosition) {
-			// Make sure that the tile gets rendered in the previous position first
+		if (tile.prevPosition) {
 			window.requestAnimationFrame(() => {
-				classes[2] = this.positionClass({ x: tile.x, y: tile.y });
-				this.applyClasses(element, classes); // Update the position
+				classes[2] = this.getPositionClass({ x: tile.x, y: tile.y });
+
+				this.setClass(element, classes);
 			});
 		} else if (tile.mergedFrom) {
 			classes.push('tile-merged');
-			this.applyClasses(element, classes);
 
-			// Render the tiles that merged
-			tile.mergedFrom.forEach(merged => {
+			this.setClass(element, classes);
+
+			tile.mergedFrom.forEach((merged: Tile) => {
 				this.addTile(merged);
 			});
 		} else {
 			classes.push('tile-new');
-			this.applyClasses(element, classes);
+
+			this.setClass(element, classes);
 		}
 
-		// Put the tile on the board
 		this.tileContainer.appendChild(element);
 	};
 
-	applyClasses = (element, classes) => {
+	private setClass = (element: Element, classes: string[]): void => {
 		element.setAttribute('class', classes.join(' '));
 	};
 
-	normalizePosition = (position: Position): Position => {
-		return { x: position.x + 1, y: position.y + 1 };
+	private normalizePosition = (position: Position): Position => ({
+		x: position.x + 1,
+		y: position.y + 1
+	});
+
+	private getPositionClass = (position: Position): string => {
+		const { x, y } = this.normalizePosition(position);
+
+		return `tile-position-${x}-${y}`;
 	};
 
-	positionClass = (position: Position): string => {
-		position = this.normalizePosition(position);
-
-		return 'tile-position-' + position.x + '-' + position.y;
-	};
-
-	updateScore = (score: number): void => {
-		this.clearContainer(this.scoreContainer);
-
+	private updateScore = (score: number): void => {
 		const difference: number = score - this.score;
 
 		this.score = score;
 
+		this.clearContainer(this.scoreContainer);
 		this.scoreContainer.textContent = this.score.toString();
 
 		if (difference > 0) {
@@ -116,15 +122,15 @@ export default class DOMUpdater {
 		}
 	};
 
-	message = (won: boolean): void => {
-		const type: string = won ? 'game-won' : 'game-over';
-		const message: string = won ? 'You win!' : 'Game over!';
+	private getMessage = (isWin: boolean): void => {
+		const type: string = isWin ? 'game-won' : 'game-over';
+		const message: string = isWin ? 'You win!' : 'Game over!';
 
 		this.messageContainer.classList.add(type);
 		this.messageContainer.querySelector('p').textContent = message;
 	};
 
-	clearMessage = () => {
+	private clearMessage = () => {
 		this.messageContainer.classList.remove('game-won', 'game-over');
 	};
 }

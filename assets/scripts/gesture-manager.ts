@@ -34,12 +34,20 @@ export default class GestureManager {
 		this.listen();
 	}
 
-	bindKeyboardEvents = (): void => {
+	public on = (event: string, callback: (event: GestureEvent) => void): void => {
+		if (!this.events[event]) {
+			this.events[event] = [];
+		}
+
+		this.events[event].push(callback);
+	};
+
+	private bindKeyboardEvents = (): void => {
 		document.addEventListener(
 			'keydown',
 			(event: MouseEvent): void => {
-				const modifiers = event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
-				const mapped = eventsMap[event.which];
+				const modifiers: boolean = event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
+				const mapped: number = eventsMap[event.which];
 
 				if (modifiers) {
 					return;
@@ -58,8 +66,8 @@ export default class GestureManager {
 		);
 	};
 
-	bindTouchEvents = (): void => {
-		const handler = new Hammer(this.gameContainer, {
+	private bindTouchEvents = (): void => {
+		const handler: HammerManager = new Hammer(this.gameContainer, {
 			recognizers: [
 				[
 					Hammer.Swipe,
@@ -70,7 +78,12 @@ export default class GestureManager {
 			]
 		});
 
-		const gestures = [Hammer.DIRECTION_UP, Hammer.DIRECTION_RIGHT, Hammer.DIRECTION_DOWN, Hammer.DIRECTION_LEFT];
+		const gestures: number[] = [
+			Hammer.DIRECTION_UP,
+			Hammer.DIRECTION_RIGHT,
+			Hammer.DIRECTION_DOWN,
+			Hammer.DIRECTION_LEFT
+		];
 
 		handler.on('swipe', (event: HammerInput) => {
 			event.preventDefault();
@@ -83,33 +96,27 @@ export default class GestureManager {
 		});
 	};
 
-	bindRestart = () => {
+	private bindRestart = (): void => {
 		this.retryButton.addEventListener('click', this.restart.bind(this));
 	};
 
-	listen = () => {
+	private listen = (): void => {
 		this.bindKeyboardEvents();
 		this.bindTouchEvents();
 		this.bindRestart();
 	};
 
-	on = (event: string, callback: (event: GestureEvent) => void) => {
-		if (!this.events[event]) {
-			this.events[event] = [];
+	private emit = (event: string, data?: any): void => {
+		const callbacks = this.events[event];
+
+		if (!callbacks) {
+			return;
 		}
 
-		this.events[event].push(callback);
+		callbacks.forEach((callback: (args: any) => any) => callback(data));
 	};
 
-	emit = (event: string, data?: any) => {
-		var callbacks = this.events[event];
-
-		if (callbacks) {
-			callbacks.forEach((callback: (args: any) => any) => callback(data));
-		}
-	};
-
-	restart = () => {
+	private restart = (): void => {
 		this.emit('restart');
 	};
 }
