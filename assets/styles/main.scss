@@ -1,11 +1,3 @@
-// External dependencies
-@import 'itscss';
-
-// Sprite
-@import 'sprite';
-@include sprites($spritesheet-sprites);
-@include retina-sprites($retina-groups);
-
 // Tools
 @import 'tools';
 
