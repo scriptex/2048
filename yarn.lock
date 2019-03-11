@@ -5206,11 +5206,6 @@ isurl@^1.0.0-alpha5:
     has-to-string-tag-x "^1.2.0"
     is-object "^1.0.1"
 
-itscss@0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/itscss/-/itscss-0.2.1.tgz#eeee10fa3f435ff96cdf1afbe5b8d7e62467c597"
-  integrity sha512-E7vEpr1952OLyDn81MWFDP97gjvG5nIShsMQMBg2F7F0umJDcj15Ugeae7KZAD/bP9IO/9VSWihfnoGCjcGRGw==
-
 js-base64@^2.1.8:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.5.1.tgz#1efa39ef2c5f7980bb1784ade4a8af2de3291121"

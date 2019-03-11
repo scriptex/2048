@@ -1,55 +1,26 @@
 {
-	"_from": "webpack-mpa-ts@latest",
-	"_id": "webpack-mpa-ts@3.1.1",
-	"_inBundle": false,
-	"_integrity": "sha512-HItZ0047TEXxlVGtfEFSqiEXMvLhNnqPFecXB6fjIEMJO481M0SF8B0oz8kpjxloiVqCeXWVfrPJ7DcBo/uhLw==",
-	"_location": "/webpack-mpa-ts",
-	"_phantomChildren": {},
-	"_requested": {
-		"type": "tag",
-		"registry": true,
-		"raw": "webpack-mpa-ts@latest",
-		"name": "webpack-mpa-ts",
-		"escapedName": "webpack-mpa-ts",
-		"rawSpec": "latest",
-		"saveSpec": null,
-		"fetchSpec": "latest"
-	},
-	"_requiredBy": [
-		"#USER"
-	],
-	"_resolved": "https://registry.npmjs.org/webpack-mpa-ts/-/webpack-mpa-ts-3.1.1.tgz",
-	"_shasum": "5431a92902dbe4e605829b716b6cba04bf14493a",
-	"_spec": "webpack-mpa-ts@latest",
-	"_where": "/Users/devmachine1/server/projects/github/2048",
 	"author": {
 		"name": "Atanas Atanasov",
 		"email": "scriptex.bg@gmail.com",
 		"url": "https://atanas.info"
-	},
-	"bin": {
-		"wmpats": "./bin/cli.js"
 	},
 	"browserslist": [
 		"> 1%",
 		"last 2 versions"
 	],
 	"bugs": {
-		"url": "https://github.com/scriptex/webpack-mpa/issues",
+		"url": "https://github.com/scriptex/2048/issues",
 		"email": "scriptex.bg@gmail.com"
 	},
-	"bundleDependencies": false,
 	"dependencies": {
-		"hammerjs": "^2.0.8",
-		"itscss": "0.2.1"
+		"hammerjs": "2.0.8"
 	},
-	"deprecated": false,
-	"description": "Multi page app setup with webpack",
+	"description": "Join the numbers and get to the 2048 tile!",
 	"devDependencies": {
 		"@three11/optisize": "0.6.0",
 		"@types/browser-sync": "0.0.42",
 		"@types/extract-text-webpack-plugin": "3.0.3",
-		"@types/hammerjs": "^2.0.36",
+		"@types/hammerjs": "2.0.36",
 		"@types/node": "10.12.18",
 		"@types/webpack": "4.4.22",
 		"@types/yargs": "12.0.5",
@@ -86,20 +57,19 @@
 		"webpack-cli": "3.1.2",
 		"yargs": "12.0.5"
 	},
-	"homepage": "https://github.com/scriptex/webpack-mpa#readme",
+	"homepage": "https://github.com/scriptex/2048#readme",
 	"keywords": [
-		"MPA",
-		"webpack",
-		"setup",
-		"multi-page"
+		"2048",
+		"tiles",
+		"game"
 	],
 	"license": "MIT",
 	"main": "assets/scripts/main.ts",
-	"name": "webpack-mpa-ts",
-	"private": false,
+	"name": "2048",
+	"private": true,
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/scriptex/webpack-mpa.git"
+		"url": "git+https://github.com/scriptex/2048.git"
 	},
 	"scripts": {
 		"build": "webpack --env.NODE_ENV=production",
@@ -110,9 +80,9 @@
 		"lint:ts": "tslint -p tsconfig.json -c tslint.json 'assets/**/*.ts'",
 		"optisize": "optisize --src=\"./assets/images\"",
 		"prod": "yarn build && yarn html && yarn critical && yarn rm-html",
-		"pwa": "create-pwa --icon=\"./assets/images/favicon/icon.png\"",
+		"pwa": "create-pwa --icon=\"./assets/images/icon.png\"",
 		"rm-html": "rm index.html",
 		"start": "webpack --watch --env.NODE_ENV=development"
 	},
-	"version": "3.1.1"
+	"version": "1.0.0"
 }
