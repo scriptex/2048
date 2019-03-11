@@ -15,7 +15,7 @@ function autoversion($url) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" manifest="2048.appcache">
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -49,6 +49,8 @@ function autoversion($url) {
 	<meta name="msapplication-square310x310logo" content="assets/images/mstile-310x310.png" />
 	<meta name="msapplication-config" content="config.xml" />
 	<meta name="theme-color" content="#edc22e" />
+
+	<link rel="manifest" href="manifest.json" />
 
 	<?php critical_css(); ?>
 
