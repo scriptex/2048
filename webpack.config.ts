@@ -1,15 +1,12 @@
 import { parse } from 'url';
 import { resolve } from 'path';
-import { readdirSync } from 'fs';
 
 import { argv } from 'yargs';
 import * as webpack from 'webpack';
 import * as magicImporter from 'node-sass-magic-importer';
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
-import * as SpritesmithPlugin from 'webpack-spritesmith';
 import * as BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 import * as CleanWebpackPlugin from 'clean-webpack-plugin';
-import * as WebpackShellPlugin from 'webpack-shell-plugin';
 import { Options as BrowsersyncOptions } from 'browser-sync';
 
 import * as cssnano from 'cssnano';
@@ -32,27 +29,6 @@ interface IObjectsArray {
 
 const sourceMap: ISourceMap = {
 	sourceMap: (argv.env as any).NODE_ENV === 'development'
-};
-
-const svgoConfig: IObjectsArray = {
-	plugins: [
-		{ cleanupAttrs: true },
-		{ removeDoctype: true },
-		{ removeXMLProcInst: true },
-		{ removeComments: true },
-		{ removeMetadata: true },
-		{ removeUselessDefs: true },
-		{ removeEditorsNSData: true },
-		{ removeEmptyAttrs: true },
-		{ removeHiddenElems: false },
-		{ removeEmptyText: true },
-		{ removeEmptyContainers: true },
-		{ cleanupEnableBackground: true },
-		{ removeViewBox: false },
-		{ cleanupIDs: false },
-		{ convertStyleToAttrs: true },
-		{ removeUselessStrokeAndFill: true }
-	]
 };
 
 const postcssConfig: IObjectsArray = {
@@ -88,34 +64,10 @@ const extractTextConfig: ExtractTextPlugin.PluginOptions = {
 	allChunks: true
 };
 
-const spritesmithConfig = {
-	src: {
-		cwd: resolve(__dirname, 'assets/images/sprite'),
-		glob: '*.png'
-	},
-	target: {
-		image: resolve(__dirname, './assets/dist/sprite.png'),
-		css: resolve(__dirname, './assets/styles/_sprite.scss')
-	},
-	apiOptions: {
-		cssImageRef: '../dist/sprite.png'
-	},
-	retina: '@2x'
-};
-
 const cleanConfig = {
 	verbose: false,
 	exclude: ['sprite.svg']
 };
-
-const shellScripts: string[] = [];
-const svgs: string[] = readdirSync('./assets/images/svg').filter(svg => svg[0] !== '.');
-
-if (svgs.length) {
-	shellScripts.push('svgo -f assets/images/svg --config=' + JSON.stringify(svgoConfig));
-
-	shellScripts.push('spritesh -q -i assets/images/svg -o ./assets/dist/sprite.svg -p svg-');
-}
 
 module.exports = (env): webpack.Configuration => {
 	const isDevelopment: boolean = env.NODE_ENV === 'development';
@@ -207,11 +159,7 @@ module.exports = (env): webpack.Configuration => {
 				'window.jQuery': 'jquery'
 			}),
 			new ExtractTextPlugin(extractTextConfig),
-			new SpritesmithPlugin(spritesmithConfig),
-			new CleanWebpackPlugin(['./assets/dist/'], cleanConfig),
-			new WebpackShellPlugin({
-				onBuildStart: shellScripts
-			})
+			new CleanWebpackPlugin(['./assets/dist/'], cleanConfig)
 		],
 		cache: true,
 		bail: false,
