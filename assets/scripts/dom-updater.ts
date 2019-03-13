@@ -15,9 +15,9 @@ export default class DOMUpdater {
 	public score: number;
 
 	constructor() {
-		this.tileContainer = document.getElementsByClassName('tile-container')[0];
-		this.scoreContainer = document.getElementsByClassName('score-container')[0];
-		this.messageContainer = document.getElementsByClassName('game-message')[0];
+		this.tileContainer = document.getElementsByClassName('tiles')[0];
+		this.scoreContainer = document.getElementsByClassName('score')[0];
+		this.messageContainer = document.getElementsByClassName('message')[0];
 
 		this.score = 0;
 	}

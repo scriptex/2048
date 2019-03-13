@@ -1,0 +1,33 @@
+.score {
+	font-size: 2rem;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	font-weight: 700;
+	padding: 0.5rem 1.5rem;
+	position: relative;
+	background: #bbada0;
+	border-radius: 0.25rem;
+
+	&:before {
+		content: 'Score';
+		font-size: 0.875rem;
+		line-height: 1;
+		color: #eee4da;
+		text-transform: uppercase;
+		display: block;
+		padding-bottom: 0.5rem;
+	}
+
+	&-addition {
+		font-size: 1.75rem;
+		line-height: 1;
+		color: rgba(#776e65, 0.9);
+		font-weight: 700;
+		z-index: 2;
+		position: absolute;
+		right: 30px;
+		animation: move-up 0.6s ease-in;
+		animation-fill-mode: both;
+	}
+}

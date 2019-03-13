@@ -1,0 +1,38 @@
+.message {
+	font-size: 3.75rem;
+	line-height: 1;
+	text-align: center;
+	font-weight: 700;
+	display: none;
+	flex-flow: column wrap;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(#eee4da, 0.75);
+	z-index: 3;
+	animation: fade-in 0.8s ease 0.4s * 12;
+	animation-fill-mode: both;
+
+	p {
+		margin: 2rem;
+	}
+
+	&__actions {
+		display: block;
+		margin-top: 2rem;
+	}
+
+	&.game-won {
+		color: #f9f6f2;
+		background: rgba(#edc22e, 0.75);
+	}
+
+	&.game-won,
+	&.game-over {
+		display: flex;
+	}
+}

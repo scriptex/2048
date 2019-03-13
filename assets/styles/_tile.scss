@@ -1,0 +1,115 @@
+.tile {
+	font-size: 3.4375rem;
+	line-height: 2.6;
+	text-align: center;
+	font-weight: 700;
+	width: calc(25% - 1rem);
+	height: 0;
+	padding-bottom: calc(25% - 1rem);
+	position: absolute;
+	z-index: 10;
+	background: #eee4da;
+	border-radius: 0.25rem;
+	transition: 0.4s ease-in-out;
+	transition-property: top, left;
+
+	&s {
+		width: calc(100% - 1rem);
+		height: calc(100% - 1rem);
+		position: absolute;
+		top: 0.5rem;
+		left: 0.5rem;
+		z-index: 2;
+	}
+
+	@for $x from 1 through 4 {
+		// TODO use custom
+		@for $y from 1 through 4 {
+			// TODO use custom
+			&.tile-position-#{$x}-#{$y} {
+				left: calc(25% * #{$x - 1} + 0.5rem);
+				top: calc(25% * #{$y - 1} + 0.5rem);
+			}
+		}
+	}
+
+	$base: 2;
+	$exponent: 1;
+	$limit: 11;
+
+	// prettier-ignore
+	$special-colors:
+		false false, // 2
+		false false, // 4
+		#f78e48 true, // 8
+		#fc5e2e true, // 16
+		#ff3333 true, // 32
+		#ff0000 true, // 64
+		false true, // 128
+		false true, // 256
+		false true, // 512
+		false true, // 1024
+		false true; // 2048
+
+	@while $exponent <= $limit {
+		$power: pow($base, $exponent);
+
+		&.tile-#{$power} {
+			$gold-percent: ($exponent - 1) / ($limit - 1) * 100;
+			$mixed-background: mix(#edc22e, #eee4da, $gold-percent);
+			$nth-color: nth($special-colors, $exponent);
+			$special-background: nth($nth-color, 1);
+			$bright-color: nth($nth-color, 2);
+
+			@if $special-background {
+				$mixed-background: mix($special-background, $mixed-background, 55%);
+			}
+
+			@if $bright-color {
+				color: #f9f6f2;
+			}
+
+			background: $mixed-background;
+
+			$glow-opacity: max($exponent - 4, 0) / ($limit - 4);
+
+			@if not $special-background {
+				// prettier-ignore
+				box-shadow: 0 0 30px 10px rgba(lighten(#edc22e, 15%), $glow-opacity / 1.8), inset 0 0 0 1px rgba(white, $glow-opacity / 3);
+			}
+
+			@if $power >= 100 and $power < 1000 {
+				font-size: 45px;
+
+				@include smaller {
+					font-size: 25px;
+					line-height: 3;
+				}
+			} @else if $power >= 1000 {
+				font-size: 35px;
+
+				@include smaller {
+					font-size: 20px;
+					line-height: 3.75;
+				}
+			}
+		}
+
+		$exponent: $exponent + 1;
+	}
+
+	&-new {
+		animation: appear 0.2s ease 0.4s;
+		animation-fill-mode: both;
+	}
+
+	&-merged {
+		z-index: 20;
+		animation: pop 0.2s ease 0.4s;
+		animation-fill-mode: both;
+	}
+
+	@include smaller {
+		font-size: 30px;
+	}
+}

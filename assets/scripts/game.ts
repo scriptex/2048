@@ -28,8 +28,8 @@ export default class Game {
 		this.startTiles = startTiles;
 
 		this.gestureManager = new GestureManager({
-			gameContainer: document.querySelector('.game-container') as HTMLDivElement,
-			retryButton: document.querySelector('.retry-button')
+			gameContainer: document.querySelector('.game') as HTMLDivElement,
+			retryButton: document.querySelector('.retry')
 		});
 		this.domUpdater = new DOMUpdater();
 

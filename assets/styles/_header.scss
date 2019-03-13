@@ -1,0 +1,16 @@
+.header {
+	font-size: 1.125rem;
+
+	p {
+		letter-spacing: -0.01em;
+		margin: 0;
+	}
+
+	&__top,
+	&__bottom {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-bottom: 1rem;
+	}
+}

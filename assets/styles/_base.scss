@@ -1,0 +1,33 @@
+html,
+body {
+	font-family: monospace;
+	font-size: 1rem;
+	line-height: 1.25;
+	color: #776e65;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: #fff;
+}
+
+h1 {
+	font-size: 2.5rem;
+	line-height: 1;
+	margin: 0;
+}
+
+.container {
+	max-width: 38.924rem;
+	padding: 1rem;
+	margin: 0 auto;
+}
+
+.game {
+	position: relative;
+	padding: 1rem;
+	box-sizing: border-box;
+	background: #bbada0;
+	border-radius: 0.5rem;
+	cursor: default;
+	user-select: none;
+}
