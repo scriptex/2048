@@ -43,7 +43,7 @@
 		"postcss-merge-rules": "4.0.2",
 		"postcss-url": "8.0.0",
 		"postcss-utilities": "0.8.0",
-		"postcss-watch-folder": "0.1.2",
+		"postcss-watch-folder": "1.0.0",
 		"sass-loader": "7.1.0",
 		"source-map-loader": "0.2.4",
 		"stylelint": "9.9.0",
