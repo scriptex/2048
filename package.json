@@ -23,7 +23,7 @@
 		"@types/hammerjs": "2.0.36",
 		"@types/node": "10.14.1",
 		"@types/webpack": "4.4.25",
-		"@types/yargs": "12.0.5",
+		"@types/yargs": "12.0.9",
 		"autoprefixer": "9.4.3",
 		"awesome-typescript-loader": "5.2.1",
 		"browser-sync": "2.26.3",
