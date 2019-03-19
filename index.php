@@ -66,7 +66,7 @@ function autoversion($url) {
 	<meta name="msapplication-config" content="config.xml" />
 	<meta name="theme-color" content="#edc22e" />
 
-	<link rel="manifest" href="/manifest.json" />
+	<link rel="manifest" href="manifest.json" />
 
 	<?php critical_css(); ?>
 
