@@ -21,7 +21,7 @@
 		"@types/browser-sync": "0.0.43",
 		"@types/extract-text-webpack-plugin": "3.0.4",
 		"@types/hammerjs": "2.0.36",
-		"@types/node": "11.12.0",
+		"@types/node": "11.12.1",
 		"@types/webpack": "4.4.26",
 		"@types/yargs": "12.0.10",
 		"autoprefixer": "9.5.0",
