@@ -26,7 +26,7 @@
 		"@types/yargs": "13.0.0",
 		"autoprefixer": "9.5.1",
 		"awesome-typescript-loader": "5.2.1",
-		"browser-sync": "2.26.3",
+		"browser-sync": "2.26.4",
 		"browser-sync-webpack-plugin": "2.2.2",
 		"clean-webpack-plugin": "1.0.1",
 		"create-pwa": "1.0.0",
