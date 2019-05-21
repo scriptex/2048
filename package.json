@@ -18,7 +18,7 @@
 	"description": "Join the numbers and get to the 2048 tile!",
 	"devDependencies": {
 		"@three11/optisize": "0.7.0",
-		"@types/browser-sync": "0.0.43",
+		"@types/browser-sync": "2.26.0",
 		"@types/extract-text-webpack-plugin": "3.0.4",
 		"@types/hammerjs": "2.0.36",
 		"@types/node": "11.13.11",
