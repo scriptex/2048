@@ -78,7 +78,8 @@ function autoversion($url) {
 			<div class="header__top">
 				<h1>2048</h1>
 
-				<div class="score">0</div>
+				<div class="score current-score">0</div>
+				<div class="score best-score">0</div>
 			</div><!-- /.header__top -->
 
 			<div class="header__bottom">

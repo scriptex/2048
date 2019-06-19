@@ -4,13 +4,12 @@
 	color: #fff;
 	text-align: center;
 	font-weight: 700;
-	padding: 0.5rem 1.5rem;
+	padding: 0.5rem 1rem;
 	position: relative;
 	background: #bbada0;
 	border-radius: 0.25rem;
 
 	&:before {
-		content: 'Score';
 		font-size: 0.875rem;
 		line-height: 1;
 		color: #eee4da;
@@ -29,5 +28,22 @@
 		right: 30px;
 		animation: move-up 0.6s ease-in;
 		animation-fill-mode: both;
+	}
+
+	&.current-score {
+		border-right: 1px solid #fff;
+		border-radius: 0.25rem 0 0 0.25rem;
+
+		&::before {
+			content: 'Score';
+		}
+	}
+
+	&.best-score {
+		border-radius: 0 0.25rem 0.25rem 0;
+
+		&::before {
+			content: 'Best';
+		}
 	}
 }

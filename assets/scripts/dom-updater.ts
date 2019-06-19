@@ -11,15 +11,23 @@ export default class DOMUpdater {
 	private tileContainer: Element;
 	private scoreContainer: Element;
 	private messageContainer: Element;
+	private bestScoreContainer: Element;
 
 	public score: number;
 
+	private storageKey: string;
+
 	constructor() {
-		this.tileContainer = document.getElementsByClassName('tiles')[0];
-		this.scoreContainer = document.getElementsByClassName('score')[0];
-		this.messageContainer = document.getElementsByClassName('message')[0];
+		this.tileContainer = document.querySelector('.tiles');
+		this.scoreContainer = document.querySelector('.current-score');
+		this.messageContainer = document.querySelector('.message');
+		this.bestScoreContainer = document.querySelector('.best-score');
 
 		this.score = 0;
+
+		this.storageKey = '2048-best-score';
+
+		this.updateBestScore();
 	}
 
 	public update = (grid: Grid, metadata: Metadata): void => {
@@ -119,7 +127,24 @@ export default class DOMUpdater {
 			addition.textContent = '+' + difference;
 
 			this.scoreContainer.appendChild(addition);
+
+			this.updateBestScore();
 		}
+	};
+
+	private updateBestScore = (): void => {
+		const bestScore: string = localStorage.getItem(this.storageKey);
+		const currentScore: number = this.score;
+
+		if (!bestScore) {
+			localStorage.setItem(this.storageKey, currentScore.toString());
+		}
+
+		if (bestScore && currentScore > parseInt(bestScore, 10)) {
+			localStorage.setItem(this.storageKey, currentScore.toString());
+		}
+
+		this.bestScoreContainer.textContent = localStorage.getItem(this.storageKey);
 	};
 
 	private getMessage = (isWin: boolean): void => {

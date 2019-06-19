@@ -13,4 +13,16 @@
 		justify-content: space-between;
 		padding-bottom: 1rem;
 	}
+
+	&__top {
+		justify-content: flex-end;
+
+		h1 {
+			margin-right: auto;
+		}
+	}
+
+	&__bottom {
+		justify-content: space-between;
+	}
 }
