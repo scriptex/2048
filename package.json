@@ -74,14 +74,12 @@
 	"scripts": {
 		"build": "webpack --env.NODE_ENV=production",
 		"critical": "critical index.html > assets/dist/critical.css",
-		"html": "php index.php > index.html",
 		"lint": "yarn lint:ts && yarn lint:scss",
 		"lint:scss": "stylelint './src/**/*.scss' --config .stylelintrc.json",
 		"lint:ts": "tslint -p tsconfig.json -c tslint.json 'assets/**/*.ts'",
 		"optisize": "optisize --src=\"./assets/images\"",
-		"prod": "yarn build && yarn html && yarn critical && yarn rm-html",
+		"prod": "yarn build && yarn critical",
 		"pwa": "create-pwa --icon=\"./assets/images/icon.png\" --launch=\"./assets/images/launch.png\"",
-		"rm-html": "rm index.html",
 		"start": "webpack --watch --env.NODE_ENV=development"
 	},
 	"version": "1.0.0"
