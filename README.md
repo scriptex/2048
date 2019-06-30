@@ -5,5 +5,3 @@
 A TypeScript implementation of the popular game
 
 [Click to play](https://scriptex.js.org/2048/)
-
-**`/docs` folder is used for gh-pages**
