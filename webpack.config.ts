@@ -121,7 +121,9 @@ module.exports = (env): webpack.Configuration => {
 							{
 								loader: 'sass-loader',
 								options: {
-									importer: magicImporter(),
+									sassOptions: {
+										importer: magicImporter()
+									},
 									...sourceMap
 								}
 							}
