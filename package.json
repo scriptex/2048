@@ -24,7 +24,7 @@
 		"@types/node": "12.12.3",
 		"@types/webpack": "4.39.7",
 		"@types/yargs": "13.0.3",
-		"autoprefixer": "9.7.0",
+		"autoprefixer": "9.7.1",
 		"awesome-typescript-loader": "5.2.1",
 		"browser-sync": "2.26.7",
 		"browser-sync-webpack-plugin": "2.2.2",
