@@ -6,7 +6,7 @@ import * as webpack from 'webpack';
 import * as magicImporter from 'node-sass-magic-importer';
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
 import * as BrowserSyncPlugin from 'browser-sync-webpack-plugin';
-import * as CleanWebpackPlugin from 'clean-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import { Options as BrowsersyncOptions } from 'browser-sync';
 
 import * as cssnano from 'cssnano';
@@ -65,8 +65,7 @@ const extractTextConfig: ExtractTextPlugin.PluginOptions = {
 };
 
 const cleanConfig = {
-	verbose: false,
-	exclude: ['sprite.svg']
+	cleanOnceBeforeBuildPatterns: ['dist/*', '!dist/sprite.svg']
 };
 
 module.exports = (env): webpack.Configuration => {
@@ -161,7 +160,7 @@ module.exports = (env): webpack.Configuration => {
 				'window.jQuery': 'jquery'
 			}),
 			new ExtractTextPlugin(extractTextConfig),
-			new CleanWebpackPlugin(['./assets/dist/'], cleanConfig)
+			new CleanWebpackPlugin(cleanConfig)
 		],
 		cache: true,
 		bail: false,
