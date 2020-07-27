@@ -4,9 +4,9 @@ import { resolve } from 'path';
 import { argv } from 'yargs';
 import * as webpack from 'webpack';
 import * as magicImporter from 'node-sass-magic-importer';
-import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
-import * as BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import * as BrowserSyncPlugin from 'browser-sync-webpack-plugin';
+import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { Options as BrowsersyncOptions } from 'browser-sync';
 
 import * as cssnano from 'cssnano';
@@ -59,28 +59,20 @@ const browserSyncConfig: BrowsersyncOptions = {
 	proxy: 'localhost'
 };
 
-const extractTextConfig: ExtractTextPlugin.PluginOptions = {
-	filename: 'dist/app.css',
-	allChunks: true
+const extractTextConfig: MiniCssExtractPlugin.PluginOptions = {
+	filename: 'dist/app.css'
 };
 
 const cleanConfig = {
 	cleanOnceBeforeBuildPatterns: ['dist/*', '!dist/sprite.svg']
 };
 
-module.exports = (env): webpack.Configuration => {
+module.exports = (env: any): webpack.Configuration => {
 	const isDevelopment: boolean = env.NODE_ENV === 'development';
 	const isProduction: boolean = env.NODE_ENV === 'production';
 
 	if (isProduction) {
-		postcssConfig.plugins.push(
-			postcssMergeRules,
-			cssnano({
-				discardComments: {
-					removeAll: true
-				}
-			})
-		);
+		postcssConfig.plugins.push(postcssMergeRules, cssnano());
 	}
 
 	if (isDevelopment) {
@@ -106,28 +98,32 @@ module.exports = (env): webpack.Configuration => {
 		module: {
 			rules: [
 				{
-					test: /\.scss$/,
-					use: ExtractTextPlugin.extract({
-						use: [
-							{
-								loader: 'css-loader',
-								options: sourceMap
-							},
-							{
-								loader: 'postcss-loader',
-								options: postcssConfig
-							},
-							{
-								loader: 'sass-loader',
-								options: {
-									sassOptions: {
-										importer: magicImporter()
-									},
-									...sourceMap
-								}
+					test: /\.(sa|sc|c)ss$/,
+					use: [
+						{
+							loader: MiniCssExtractPlugin.loader,
+							options: {
+								hmr: env.NODE_ENV === 'development'
 							}
-						]
-					})
+						},
+						{
+							loader: 'css-loader',
+							options: sourceMap
+						},
+						{
+							loader: 'postcss-loader',
+							options: postcssConfig
+						},
+						{
+							loader: 'sass-loader',
+							options: {
+								sassOptions: {
+									importer: magicImporter()
+								},
+								...sourceMap
+							}
+						}
+					]
 				},
 				{
 					test: /\.ts$/,
@@ -159,7 +155,7 @@ module.exports = (env): webpack.Configuration => {
 				jQuery: 'jquery',
 				'window.jQuery': 'jquery'
 			}),
-			new ExtractTextPlugin(extractTextConfig),
+			new MiniCssExtractPlugin(extractTextConfig),
 			new CleanWebpackPlugin(cleanConfig)
 		],
 		cache: true,
