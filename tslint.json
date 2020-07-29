@@ -17,7 +17,7 @@
 		"import-blacklist": [true, "rxjs"],
 		"jsx-no-lambda": false,
 		"jsx-no-multiline-js": false,
-		"no-import-side-effect": [true, { "ignore-module": "\\.scss$" }],
+		"no-import-side-effect": false,
 		"typedef": [true, "call-signature", "parameter", "member-variable-declaration"],
 		"jsx-curly-spacing": [2, "always"],
 		"no-bitwise": false
