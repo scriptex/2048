@@ -1,0 +1,175 @@
+[
+	{
+		"tag": "title",
+		"content": "2048 | Join the numbers and get to the 2048 tile!"
+	},
+	{
+		"tag": "meta",
+		"name": "description",
+		"content": "2048 - A TypeScript implementation of the popular tile game"
+	},
+	{
+		"tag": "meta",
+		"name": "keywords",
+		"content": "2048, game, html5 game, TypeScript, JavaScript"
+	},
+	{
+		"tag": "meta",
+		"name": "copyright",
+		"content": "Atanas Atanasov"
+	},
+	{
+		"tag": "meta",
+		"name": "language",
+		"content": "EN"
+	},
+	{
+		"tag": "meta",
+		"name": "robots",
+		"content": "index,follow"
+	},
+	{
+		"tag": "meta",
+		"name": "author",
+		"content": "Atanas Atanasov, hi@atanas.info"
+	},
+	{
+		"tag": "link",
+		"rel": "apple-touch-icon",
+		"sizes": "57x57",
+		"href": "favicons/apple-touch-icon-57x57.png"
+	},
+	{
+		"tag": "link",
+		"rel": "apple-touch-icon",
+		"sizes": "114x114",
+		"href": "favicons/apple-touch-icon-114x114.png"
+	},
+	{
+		"tag": "link",
+		"rel": "apple-touch-icon",
+		"sizes": "72x72",
+		"href": "favicons/apple-touch-icon-72x72.png"
+	},
+	{
+		"tag": "link",
+		"rel": "apple-touch-icon",
+		"sizes": "144x144",
+		"href": "favicons/apple-touch-icon-144x144.png"
+	},
+	{
+		"tag": "link",
+		"rel": "apple-touch-icon",
+		"sizes": "60x60",
+		"href": "favicons/apple-touch-icon-60x60.png"
+	},
+	{
+		"tag": "link",
+		"rel": "apple-touch-icon",
+		"sizes": "120x120",
+		"href": "favicons/apple-touch-icon-120x120.png"
+	},
+	{
+		"tag": "link",
+		"rel": "apple-touch-icon",
+		"sizes": "76x76",
+		"href": "favicons/apple-touch-icon-76x76.png"
+	},
+	{
+		"tag": "link",
+		"rel": "apple-touch-icon",
+		"sizes": "152x152",
+		"href": "favicons/apple-touch-icon-152x152.png"
+	},
+	{
+		"tag": "link",
+		"rel": "icon",
+		"type": "image/png",
+		"href": "favicons/favicon-196x196.png",
+		"sizes": "196x196"
+	},
+	{
+		"tag": "link",
+		"rel": "icon",
+		"type": "image/png",
+		"href": "favicons/favicon-96x96.png",
+		"sizes": "96x96"
+	},
+	{
+		"tag": "link",
+		"rel": "icon",
+		"type": "image/png",
+		"href": "favicons/favicon-32x32.png",
+		"sizes": "32x32"
+	},
+	{
+		"tag": "link",
+		"rel": "icon",
+		"type": "image/png",
+		"href": "favicons/favicon-16x16.png",
+		"sizes": "16x16"
+	},
+	{
+		"tag": "link",
+		"rel": "icon",
+		"type": "image/png",
+		"href": "favicons/favicon-128.png",
+		"sizes": "128x128"
+	},
+	{
+		"tag": "link",
+		"rel": "shortcut icon",
+		"type": "image/x-icon",
+		"href": "favicons/favicon.ico"
+	},
+	{
+		"tag": "meta",
+		"name": "application-name",
+		"content": "2048"
+	},
+	{
+		"tag": "meta",
+		"name": "msapplication-TileColor",
+		"content": "#edc22e"
+	},
+	{
+		"tag": "meta",
+		"name": "msapplication-TileImage",
+		"content": "favicons/ms-tile-144x144.png"
+	},
+	{
+		"tag": "meta",
+		"name": "msapplication-square70x70logo",
+		"content": "favicons/ms-tile-70x70.png"
+	},
+	{
+		"tag": "meta",
+		"name": "msapplication-square150x150logo",
+		"content": "favicons/ms-tile-150x150.png"
+	},
+	{
+		"tag": "meta",
+		"name": "msapplication-wide310x150logo",
+		"content": "favicons/ms-tile-310x150.png"
+	},
+	{
+		"tag": "meta",
+		"name": "msapplication-square310x310logo",
+		"content": "favicons/ms-tile-310x310.png"
+	},
+	{
+		"tag": "meta",
+		"name": "msapplication-config",
+		"content": "config.xml"
+	},
+	{
+		"tag": "meta",
+		"name": "theme-color",
+		"content": "#edc22e"
+	},
+	{
+		"tag": "link",
+		"rel": "stylesheet",
+		"href": "assets/dist/app.css"
+	}
+]

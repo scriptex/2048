@@ -14,6 +14,7 @@
 	},
 	"dependencies": {
 		"hammerjs": "2.0.8",
+		"html-head-component": "1.0.0",
 		"scriptex-socials": "1.2.0"
 	},
 	"description": "Join the numbers and get to the 2048 tile!",
@@ -36,7 +37,6 @@
 		"browser-sync-webpack-plugin": "2.2.2",
 		"clean-webpack-plugin": "3.0.0",
 		"create-pwa": "2.3.0",
-		"critical": "2.0.1",
 		"css-loader": "4.2.1",
 		"cssnano": "4.1.10",
 		"file-loader": "6.0.0",
@@ -78,15 +78,13 @@
 		"url": "git+https://github.com/scriptex/2048.git"
 	},
 	"scripts": {
+		"start": "webpack --watch --env.NODE_ENV=development",
 		"build": "webpack --env.NODE_ENV=production",
-		"critical": "critical index.html > assets/dist/critical.css",
 		"lint": "yarn lint:ts && yarn lint:scss",
 		"lint:scss": "stylelint assets/**/*.scss",
 		"lint:ts": "tslint -p tsconfig.json -c tslint.json 'assets/**/*.ts'",
 		"optisize": "optisize --src=\"./assets/images\"",
-		"prod": "yarn build && yarn critical",
-		"pwa": "create-pwa --icon=\"./assets/images/icon.png\" --launch=\"./assets/images/launch.png\"",
-		"start": "webpack --watch --env.NODE_ENV=development"
+		"pwa": "create-pwa --icon=\"./assets/images/icon.png\" --launch=\"./assets/images/launch.png\""
 	},
 	"version": "1.0.0"
 }
