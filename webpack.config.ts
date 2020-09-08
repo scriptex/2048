@@ -31,7 +31,7 @@ const sourceMap: ISourceMap = {
 	sourceMap: (argv.env as any).NODE_ENV === 'development'
 };
 
-const postcssConfig: IObjectsArray = {
+const postcssOptions: IObjectsArray = {
 	plugins: [postcssURL({ url: 'rebase' }), autoprefixer(), postcssUtilities, postcssEasyImport, postcssFlexbugsFixed],
 	...sourceMap
 };
@@ -72,11 +72,11 @@ module.exports = (env: any): webpack.Configuration => {
 	const isProduction: boolean = env.NODE_ENV === 'production';
 
 	if (isProduction) {
-		postcssConfig.plugins.push(postcssMergeRules, cssnano());
+		postcssOptions.plugins.push(postcssMergeRules, cssnano());
 	}
 
 	if (isDevelopment) {
-		postcssConfig.plugins.push(
+		postcssOptions.plugins.push(
 			postcssWatchFolder({
 				folder: './assets/styles',
 				main: './assets/styles/main.scss'
@@ -112,7 +112,7 @@ module.exports = (env: any): webpack.Configuration => {
 						},
 						{
 							loader: 'postcss-loader',
-							options: postcssConfig
+							options: { postcssOptions }
 						},
 						{
 							loader: 'sass-loader',
