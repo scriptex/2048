@@ -541,13 +541,13 @@
     "@types/browserslist" "*"
     postcss "7.x.x"
 
-"@types/browser-sync-webpack-plugin@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@types/browser-sync-webpack-plugin/-/browser-sync-webpack-plugin-2.2.0.tgz#ecb886e1cc2d99fe9f2bfba09e30c716f4779b52"
-  integrity sha512-Wwyw5LY7vW4o8B3U9bq7U7xbVYDN/Ui09jwCmymoJ0aTzr5RCcG2EzsZBGz6mWD1X58mlMZBt8zmL6xC+jkT3g==
+"@types/browser-sync-webpack-plugin@2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@types/browser-sync-webpack-plugin/-/browser-sync-webpack-plugin-2.2.1.tgz#25f1048f987731f8931902a3146361befcbde07e"
+  integrity sha512-q6MbRqPXpBlvMBbD3RulQl3FzznXbHtIdmphoWKeTf12woR8L6QpQkl9iJI8C1VUdEQgCIaMxv+58Q+Q/lsKIw==
   dependencies:
     "@types/browser-sync" "*"
-    "@types/webpack" "*"
+    "@types/webpack" "^4"
 
 "@types/browser-sync@*", "@types/browser-sync@2.26.1":
   version "2.26.1"
@@ -717,6 +717,11 @@
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.6.tgz#a9ca4b70a18b270ccb2bc0aaafefd1d486b7ea74"
   integrity sha512-W+bw9ds02rAQaMvaLYxAbJ6cvguW/iJXNT6lTssS1ps6QdrMKttqEAMEG/b5CR8TZl3/L7/lH0ZV5nNR1LXikA==
 
+"@types/tapable@^1":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.7.tgz#545158342f949e8fd3bfd813224971ecddc3fac4"
+  integrity sha512-0VBprVqfgFD7Ehb2vd8Lh9TG3jP98gvr8rgehQqzztZNI7o8zS8Ad4jyZneKELphpuE212D8J70LnSNQSyO6bQ==
+
 "@types/uglify-js@*":
   version "3.9.3"
   resolved "https://registry.yarnpkg.com/@types/uglify-js/-/uglify-js-3.9.3.tgz#d94ed608e295bc5424c9600e6b8565407b6b4b6b"
@@ -758,6 +763,18 @@
     "@types/anymatch" "*"
     "@types/node" "*"
     "@types/tapable" "*"
+    "@types/uglify-js" "*"
+    "@types/webpack-sources" "*"
+    source-map "^0.6.0"
+
+"@types/webpack@^4":
+  version "4.41.27"
+  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.27.tgz#f47da488c8037e7f1b2dbf2714fbbacb61ec0ffc"
+  integrity sha512-wK/oi5gcHi72VMTbOaQ70VcDxSQ1uX8S2tukBK9ARuGXrYM/+u4ou73roc7trXDNmCxCoerE8zruQqX/wuHszA==
+  dependencies:
+    "@types/anymatch" "*"
+    "@types/node" "*"
+    "@types/tapable" "^1"
     "@types/uglify-js" "*"
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
