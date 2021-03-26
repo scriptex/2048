@@ -49,7 +49,7 @@ export default class Grid {
 
 	private build = (): void => {
 		for (let x = 0; x < this.size; x++) {
-			const row: Array<Position | null> = (this.cells[x] = []);
+			const row: (Position | null)[] = (this.cells[x] = []);
 
 			for (let y = 0; y < this.size; y++) {
 				row.push(null);
