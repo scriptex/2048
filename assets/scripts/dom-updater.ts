@@ -18,10 +18,10 @@ export default class DOMUpdater {
 	private storageKey: string;
 
 	constructor() {
-		this.tileContainer = document.querySelector('.tiles');
-		this.scoreContainer = document.querySelector('.current-score');
-		this.messageContainer = document.querySelector('.message');
-		this.bestScoreContainer = document.querySelector('.best-score');
+		this.tileContainer = document.querySelector('.tiles') as HTMLDivElement;
+		this.scoreContainer = document.querySelector('.current-score') as HTMLDivElement;
+		this.messageContainer = document.querySelector('.message') as HTMLDivElement;
+		this.bestScoreContainer = document.querySelector('.best-score') as HTMLDivElement;
 
 		this.score = 0;
 
@@ -133,7 +133,7 @@ export default class DOMUpdater {
 	};
 
 	private updateBestScore = (): void => {
-		const bestScore: string = localStorage.getItem(this.storageKey);
+		const bestScore: string = localStorage.getItem(this.storageKey) || '';
 		const currentScore: number = this.score;
 
 		if (!bestScore) {
@@ -152,7 +152,7 @@ export default class DOMUpdater {
 		const message: string = isWin ? 'You win!' : 'Game over!';
 
 		this.messageContainer.classList.add(type);
-		this.messageContainer.querySelector('p').textContent = message;
+		this.messageContainer.querySelector('p')!.textContent = message;
 	};
 
 	private clearMessage = () => {

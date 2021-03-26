@@ -7,8 +7,8 @@ export default class Tile {
 	public x: Position['x'];
 	public y: Position['y'];
 	public value: number;
-	public mergedFrom: [any, any];
-	public prevPosition: Position;
+	public mergedFrom: [any, any] | null;
+	public prevPosition: Position | null;
 
 	constructor(position: Position, value: number) {
 		this.x = position.x;

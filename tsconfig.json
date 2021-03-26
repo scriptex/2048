@@ -1,9 +1,33 @@
 {
 	"compilerOptions": {
+		"alwaysStrict": true,
+		"allowSyntheticDefaultImports": true,
+		"allowJs": false,
+		"checkJs": false,
+		"declaration": false,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"forceConsistentCasingInFileNames": true,
+		"importHelpers": true,
+		"lib": ["dom", "esNext"],
+		"noEmit": false,
+		"noEmitHelpers": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": false,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noStrictGenericChecks": false,
 		"outDir": "./assets/dist/",
+		"pretty": true,
+		"removeComments": false,
+		"skipLibCheck": true,
 		"sourceMap": true,
-		"target": "es5",
-		"lib": ["es5", "es6", "dom"]
+		"strict": true,
+		"strictBindCallApply": true,
+		"strictFunctionTypes": true,
+		"strictPropertyInitialization": true,
+		"strictNullChecks": true,
+		"target": "es5"
 	},
 	"include": ["./assets/scripts/**/*"]
 }

@@ -15,11 +15,11 @@ export interface LastPosition {
 
 export default class Game {
 	private size: number;
-	private score: number;
+	private score: number = 0;
 	private startTiles: number;
-	private isWin: boolean;
-	private isOver: boolean;
-	private grid: Grid;
+	private isWin: boolean = false;
+	private isOver: boolean = false;
+	private grid: Grid | null = null;
 	private domUpdater: DOMUpdater;
 	private gestureManager: GestureManager;
 
@@ -29,11 +29,12 @@ export default class Game {
 
 		this.gestureManager = new GestureManager({
 			gameContainer: document.querySelector('.game') as HTMLDivElement,
-			retryButton: document.querySelector('.retry')
+			retryButton: document.querySelector('.retry') as HTMLButtonElement
 		});
 		this.domUpdater = new DOMUpdater();
 
-		this.gestureManager.on('move', this.move.bind(this));
+		// @ts-ignore
+		this.gestureManager.on('move', this.move);
 		this.gestureManager.on('restart', this.restart.bind(this));
 
 		this.init();
@@ -62,17 +63,21 @@ export default class Game {
 	};
 
 	private renderTile = (): void => {
-		if (!this.grid.hasCellsAvailable()) {
+		if (!this.grid || !this.grid.hasCellsAvailable()) {
 			return;
 		}
 
 		const value: number = Math.random() < 0.9 ? 2 : 4;
-		const tile: Tile = new Tile(this.grid.getAvailableCell(), value);
+		const tile: Tile = new Tile(this.grid.getAvailableCell()!, value);
 
 		this.grid.insertTile(tile);
 	};
 
 	private update = (): void => {
+		if (!this.grid) {
+			return;
+		}
+
 		this.domUpdater.update(this.grid, {
 			score: this.score,
 			isOver: this.isOver,
@@ -81,6 +86,10 @@ export default class Game {
 	};
 
 	private updateTiles = (): void => {
+		if (!this.grid) {
+			return;
+		}
+
 		this.grid.eachCell((x: number, y: number, tile: Tile) => {
 			if (tile) {
 				tile.mergedFrom = null;
@@ -90,6 +99,10 @@ export default class Game {
 	};
 
 	private moveTile = (tile: Tile, cell: Position): void => {
+		if (!this.grid) {
+			return;
+		}
+
 		this.grid.cells[tile.x][tile.y] = null;
 		this.grid.cells[cell.x][cell.y] = tile;
 
@@ -113,19 +126,19 @@ export default class Game {
 		cellsInDirection.x.forEach((x: number) => {
 			cellsInDirection.y.forEach((y: number) => {
 				cell = { x, y };
-				tile = this.grid.getCellContent(cell);
+				tile = this.grid!.getCellContent(cell);
 
 				if (tile) {
 					const positions: LastPosition = this.getLastPosition(cell, coordinates);
-					const next: Tile = this.grid.getCellContent(positions.next);
+					const next: Tile = this.grid!.getCellContent(positions.next);
 
 					if (next && next.value === tile.value && !next.mergedFrom) {
 						const mergedTile: Tile = new Tile(positions.next, tile.value * 2);
 
 						mergedTile.mergedFrom = [tile, next];
 
-						this.grid.insertTile(mergedTile);
-						this.grid.removeTile(tile);
+						this.grid!.insertTile(mergedTile);
+						this.grid!.removeTile(tile);
 
 						tile.update(positions.next);
 
@@ -192,7 +205,7 @@ export default class Game {
 		do {
 			previous = cell;
 			cell = { x: previous.x + coordinates.x, y: previous.y + coordinates.y };
-		} while (this.grid.isInBounds(cell) && this.grid.isCellAvailable(cell));
+		} while (this.grid!.isInBounds(cell) && this.grid!.isCellAvailable(cell));
 
 		return {
 			last: previous,
@@ -200,14 +213,14 @@ export default class Game {
 		};
 	};
 
-	private hasMovesLeft = (): boolean => this.grid.hasCellsAvailable() || this.tileMatchesAvailable();
+	private hasMovesLeft = (): boolean => this.grid!.hasCellsAvailable() || this.tileMatchesAvailable();
 
 	private tileMatchesAvailable = (): boolean => {
 		let tile: Tile;
 
 		for (let x = 0; x < this.size; x++) {
 			for (let y = 0; y < this.size; y++) {
-				tile = this.grid.getCellContent({ x, y });
+				tile = this.grid!.getCellContent({ x, y });
 
 				if (!tile) {
 					continue;
@@ -216,7 +229,7 @@ export default class Game {
 				for (let direction = 0; direction < this.size; direction++) {
 					const coordinates: Position = this.getCoordinates(direction);
 					const cell: Position = { x: x + coordinates.x, y: y + coordinates.y };
-					const other: Tile = this.grid.getCellContent(cell);
+					const other: Tile = this.grid!.getCellContent(cell);
 
 					if (other && other.value === tile.value) {
 						return true;

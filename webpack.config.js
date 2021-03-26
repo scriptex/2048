@@ -1,46 +1,60 @@
-import { parse } from 'url';
-import { resolve } from 'path';
+// @ts-nocheck
 
-import { argv } from 'yargs';
-import * as webpack from 'webpack';
-import * as magicImporter from 'node-sass-magic-importer';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import * as BrowserSyncPlugin from 'browser-sync-webpack-plugin';
-import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { Options as BrowsersyncOptions } from 'browser-sync';
+const { exec } = require('child_process');
+const { parse } = require('url');
+const { resolve } = require('path');
 
-import * as cssnano from 'cssnano';
-import * as postcssURL from 'postcss-url';
-import * as autoprefixer from 'autoprefixer';
-import * as postcssUtilities from 'postcss-utilities';
-import * as postcssEasyImport from 'postcss-easy-import';
-import * as postcssMergeRules from 'postcss-merge-rules';
-import * as postcssWatchFolder from 'postcss-watch-folder';
-import * as postcssFlexbugsFixed from 'postcss-flexbugs-fixes';
+const { argv } = require('yargs');
+const webpack = require('webpack');
+const magicImporter = require('node-sass-magic-importer');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-interface ISourceMap {
-	sourceMap: boolean;
-}
+const cssnano = require('cssnano');
+const postcssURL = require('postcss-url');
+const autoprefixer = require('autoprefixer');
+const postcssUtilities = require('postcss-utilities');
+const postcssEasyImport = require('postcss-easy-import');
+const postcssMergeRules = require('postcss-merge-rules');
+const postcssWatchFolder = require('postcss-watch-folder');
+const postcssFlexbugsFixed = require('postcss-flexbugs-fixes');
 
-interface IObjectsArray {
-	plugins: any;
-	sourceMap?: boolean;
-}
-
-const sourceMap: ISourceMap = {
-	sourceMap: (argv.env as any).NODE_ENV === 'development'
+const { url, server, mode } = argv;
+const sourceMap = {
+	sourceMap: mode === 'development'
 };
 
-const postcssOptions: IObjectsArray = {
+if (server) {
+	exec('php index.php > index.html');
+}
+
+const postcssOptions = {
 	plugins: [postcssURL({ url: 'rebase' }), autoprefixer(), postcssUtilities, postcssEasyImport, postcssFlexbugsFixed],
 	...sourceMap
 };
 
-const browserSyncConfig: BrowsersyncOptions = {
+const browserSyncConfig = {
 	host: 'localhost',
 	port: 3000,
 	open: 'external',
-	files: ['**/*.php', '**/*.html', './assets/dist/app.css', './assets/dist/app.js'],
+	/* eslint-disable no-mixed-spaces-and-tabs */
+	files: [
+		server
+			? {
+					match: ['*.php'],
+					fn(_, file) {
+						const name = file.replace(/.php$/, '');
+
+						exec(`php ${file} > ${name}.html`);
+					}
+			  }
+			: '**/*.php',
+		'**/*.html',
+		'./assets/dist/app.css',
+		'./assets/dist/app.js'
+	],
+	/* eslint-enable */
 	ghostMode: {
 		clicks: false,
 		scroll: true,
@@ -59,17 +73,19 @@ const browserSyncConfig: BrowsersyncOptions = {
 	proxy: 'localhost'
 };
 
-const extractTextConfig: MiniCssExtractPlugin.PluginOptions = {
+const extractTextConfig = {
 	filename: 'dist/app.css'
 };
 
 const cleanConfig = {
-	cleanOnceBeforeBuildPatterns: ['dist/*', '!dist/sprite.svg']
+	verbose: false,
+	exclude: ['sprite.svg'],
+	allowExternal: true
 };
 
-module.exports = (env: any): webpack.Configuration => {
-	const isDevelopment: boolean = env.NODE_ENV === 'development';
-	const isProduction: boolean = env.NODE_ENV === 'production';
+module.exports = () => {
+	const isDevelopment = mode === 'development';
+	const isProduction = mode === 'production';
 
 	if (isProduction) {
 		postcssOptions.plugins.push(postcssMergeRules, cssnano());
@@ -84,8 +100,8 @@ module.exports = (env: any): webpack.Configuration => {
 		);
 	}
 
-	const config: webpack.Configuration = {
-		mode: env.NODE_ENV,
+	const config = {
+		mode: mode,
 		entry: ['./assets/styles/main.scss', './assets/scripts/main.ts'],
 		output: {
 			path: resolve(__dirname, './assets'),
@@ -153,8 +169,11 @@ module.exports = (env: any): webpack.Configuration => {
 				'window.jQuery': 'jquery'
 			}),
 			new MiniCssExtractPlugin(extractTextConfig),
-			new CleanWebpackPlugin(cleanConfig)
+			new CleanWebpackPlugin(['../assets/dist/'], cleanConfig)
 		],
+		externals: {
+			jquery: 'jQuery'
+		},
 		cache: true,
 		bail: false,
 		devtool: isDevelopment ? 'source-map' : false,
@@ -162,9 +181,16 @@ module.exports = (env: any): webpack.Configuration => {
 	};
 
 	if (isDevelopment) {
-		if (env.url) {
-			browserSyncConfig.host = parse(env.url).hostname;
-			browserSyncConfig.proxy = env.url;
+		if (url) {
+			browserSyncConfig.host = parse(url).hostname;
+			browserSyncConfig.proxy = url;
+		}
+
+		if (server) {
+			delete browserSyncConfig.host;
+			delete browserSyncConfig.proxy;
+
+			browserSyncConfig.server = true;
 		}
 
 		config.plugins.push(

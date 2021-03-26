@@ -166,10 +166,5 @@
 		"tag": "meta",
 		"name": "theme-color",
 		"content": "#edc22e"
-	},
-	{
-		"tag": "link",
-		"rel": "stylesheet",
-		"href": "assets/dist/app.css"
 	}
 ]

@@ -11,11 +11,11 @@ export default class Grid {
 		this.build();
 	}
 
-	public getAvailableCell = (): Position => {
+	public getAvailableCell = (): Position | null => {
 		const cells: Position[] = this.availableCells();
 
 		if (!cells.length) {
-			return;
+			return null;
 		}
 
 		return cells[Math.floor(Math.random() * cells.length)];
@@ -49,7 +49,7 @@ export default class Grid {
 
 	private build = (): void => {
 		for (let x = 0; x < this.size; x++) {
-			const row: Position[] = (this.cells[x] = []);
+			const row: Array<Position | null> = (this.cells[x] = []);
 
 			for (let y = 0; y < this.size; y++) {
 				row.push(null);

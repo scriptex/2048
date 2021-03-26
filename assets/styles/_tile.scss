@@ -23,9 +23,7 @@
 	}
 
 	@for $x from 1 through 4 {
-		// TODO use custom
 		@for $y from 1 through 4 {
-			// TODO use custom
 			&.tile-position-#{$x}-#{$y} {
 				left: calc(25% * #{$x - 1} + 0.5rem);
 				top: calc(25% * #{$y - 1} + 0.5rem);

@@ -43,27 +43,24 @@ export default class GestureManager {
 	};
 
 	private bindKeyboardEvents = (): void => {
-		document.addEventListener(
-			'keydown',
-			(event: MouseEvent): void => {
-				const modifiers: boolean = event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
-				const mapped: number = eventsMap[event.which];
+		document.addEventListener('keydown', (event: KeyboardEvent): void => {
+			const modifiers: boolean = event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
+			const mapped: number = eventsMap[event.which];
 
-				if (modifiers) {
-					return;
-				}
-
-				if (mapped !== undefined) {
-					event.preventDefault();
-
-					this.emit('move', mapped);
-				}
-
-				if (event.which === 32) {
-					this.restart();
-				}
+			if (modifiers) {
+				return;
 			}
-		);
+
+			if (mapped !== undefined) {
+				event.preventDefault();
+
+				this.emit('move', mapped);
+			}
+
+			if (event.which === 32) {
+				this.restart();
+			}
+		});
 	};
 
 	private bindTouchEvents = (): void => {
