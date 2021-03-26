@@ -5,7 +5,7 @@
 	},
 	"assignees": ["@scriptex"],
 	"labels": ["dependencies"],
-	"rebaseWhen": "auto",
+	"rebaseWhen": "conflicted",
 	"vulnerabilityAlerts": {
 		"labels": ["security"],
 		"assignees": ["@scriptex"]
