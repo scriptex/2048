@@ -1,23 +1,16 @@
 {
-	"extends": ["config:base"],
+	"extends": ["config:base", ":automergePatch", ":automergeBranch"],
 	"travis": {
 		"enabled": true
 	},
 	"assignees": ["@scriptex"],
 	"labels": ["dependencies"],
-	"rebaseWhen": "conflicted",
+	"rebaseWhen": "auto",
 	"vulnerabilityAlerts": {
 		"labels": ["security"],
 		"assignees": ["@scriptex"]
 	},
-	"packageRules": [
-		{
-			"updateTypes": ["patch", "pin", "digest"],
-			"automerge": true
-		}
-	],
-	"lockFileMaintenance": {
-		"enabled": true,
-		"automerge": true
+	"major": {
+		"automerge": false
 	}
 }
