@@ -24,7 +24,7 @@
 		"@types/browser-sync-webpack-plugin": "2.2.1",
 		"@types/cssnano": "4.0.0",
 		"@types/hammerjs": "2.0.39",
-		"@types/mini-css-extract-plugin": "1.4.0",
+		"@types/mini-css-extract-plugin": "1.4.1",
 		"@types/node": "14.14.36",
 		"@types/postcss-flexbugs-fixes": "4.2.0",
 		"@types/postcss-url": "8.0.1",
