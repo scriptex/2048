@@ -53,7 +53,7 @@
 		"sass-loader": "11.0.1",
 		"source-map-loader": "2.0.1",
 		"stylelint": "13.13.0",
-		"stylelint-config-recommended": "4.0.0",
+		"stylelint-config-recommended": "5.0.0",
 		"stylelint-scss": "3.19.0",
 		"ts-node": "9.1.1",
 		"tslint": "6.1.3",
