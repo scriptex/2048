@@ -30,7 +30,7 @@
 		"@types/postcss-url": "8.0.1",
 		"@types/webpack": "5.28.0",
 		"@types/yargs": "17.0.0",
-		"autoprefixer": "10.2.5",
+		"autoprefixer": "10.2.6",
 		"awesome-typescript-loader": "5.2.1",
 		"browser-sync": "2.26.14",
 		"browser-sync-webpack-plugin": "2.3.0",
