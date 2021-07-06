@@ -583,10 +583,20 @@
     "@types/browser-sync" "*"
     "@types/webpack" "^4"
 
-"@types/browser-sync@*", "@types/browser-sync@2.26.1":
+"@types/browser-sync@*":
   version "2.26.1"
   resolved "https://registry.yarnpkg.com/@types/browser-sync/-/browser-sync-2.26.1.tgz#260a68269ff2facbe8bdd16e3421c44bac39b704"
   integrity sha512-zuz0uF2QccSVbG4ubkjVDlQYpeBX/JXvmlqFFmp04FYOXunXZtx0y+UdWJxu7uryMMGkQykujUMm/ju85kqI7Q==
+  dependencies:
+    "@types/micromatch" "^2"
+    "@types/node" "*"
+    "@types/serve-static" "*"
+    chokidar "^2.1.2"
+
+"@types/browser-sync@2.26.2":
+  version "2.26.2"
+  resolved "https://registry.yarnpkg.com/@types/browser-sync/-/browser-sync-2.26.2.tgz#0a58bf50d26c009aaff8826f2a6d16d5d97581ba"
+  integrity sha512-IG8hyEIoK+lWLcXFiTo8m9RuN5/nWQVYNdSTtD/V2pxsVuP4XvmL4dcwufYrzw2IqRH+QEmCeCyyq4StJ8PpLw==
   dependencies:
     "@types/micromatch" "^2"
     "@types/node" "*"
