@@ -717,10 +717,10 @@
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
 
-"@types/postcss-flexbugs-fixes@4.2.0":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@types/postcss-flexbugs-fixes/-/postcss-flexbugs-fixes-4.2.0.tgz#20d2eee28d4e53a722db0b2b277762c9d00088b0"
-  integrity sha512-YFdkpDiwBi79aJpFYkYiMeENwRhUrsYaQijXLYRmwIxTtZRGGtGJ0P92knd+s+0s421uDhky1NNiGW2Nge5Xog==
+"@types/postcss-flexbugs-fixes@4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@types/postcss-flexbugs-fixes/-/postcss-flexbugs-fixes-4.2.1.tgz#2da29c6626b2589e75de3ce52ad669d1ae890b4c"
+  integrity sha512-M0e8fl9TqPoviDIrDItiAR9iblmMpGn9ozH9AmgR0zxzYINmzW58j1V83/w+CH5B80y3SPe1J5TSketTf3jGlg==
   dependencies:
     postcss "^7.0.27"
 
