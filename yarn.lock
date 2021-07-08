@@ -575,10 +575,10 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.1.tgz#a6ca6a9a0ff366af433f42f5f0e124794ff6b8f1"
   integrity sha512-FTgBI767POY/lKNDNbIzgAX6miIDBs6NTCbdlDb8TrWovHsSvaVIZDlTqym29C6UqhzwcJx4CYr+AlrMywA0cA==
 
-"@types/browser-sync-webpack-plugin@2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@types/browser-sync-webpack-plugin/-/browser-sync-webpack-plugin-2.2.1.tgz#25f1048f987731f8931902a3146361befcbde07e"
-  integrity sha512-q6MbRqPXpBlvMBbD3RulQl3FzznXbHtIdmphoWKeTf12woR8L6QpQkl9iJI8C1VUdEQgCIaMxv+58Q+Q/lsKIw==
+"@types/browser-sync-webpack-plugin@2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@types/browser-sync-webpack-plugin/-/browser-sync-webpack-plugin-2.2.2.tgz#9ce247e84262938ccdae18141b4cfe295aedc2e1"
+  integrity sha512-1pHfor81AqnWUEl/EqSL8c0+QLdJSm2Y4IFpg//nL753KWdHrj3XUTLusfL/VAjctrJqZaSmIoV/esbYM5cJSQ==
   dependencies:
     "@types/browser-sync" "*"
     "@types/webpack" "^4"
