@@ -27,7 +27,7 @@
 		"@types/mini-css-extract-plugin": "2.0.1",
 		"@types/node": "15.6.1",
 		"@types/postcss-flexbugs-fixes": "4.2.1",
-		"@types/postcss-url": "8.0.1",
+		"@types/postcss-url": "8.0.2",
 		"@types/webpack": "5.28.0",
 		"@types/yargs": "17.0.2",
 		"autoprefixer": "10.2.6",

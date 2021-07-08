@@ -724,10 +724,10 @@
   dependencies:
     postcss "^7.0.27"
 
-"@types/postcss-url@8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@types/postcss-url/-/postcss-url-8.0.1.tgz#08e05ce20d631a518b0e1f3c1e10b35911376852"
-  integrity sha512-udZVmjhhXDeSCLQC6KR1J3Qs3Gl1VZHtf2pSrKqEXnkgtMUTvz5ZtVVaFTiV1dM8xbYwyDQQpl0Oj45YMlVrJQ==
+"@types/postcss-url@8.0.2":
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/@types/postcss-url/-/postcss-url-8.0.2.tgz#739be2912bb123f69d71cb690a45178d89d76930"
+  integrity sha512-5eMpnD6C02ZerfE/Omk1C/P+agin6jm8OBVP/7mQmRijhqJTPK9CR2k6p2Qi+9ux1ZDeVW/xYerxQqt2DqBrEg==
   dependencies:
     "@types/node" "*"
     postcss "7.x.x"
