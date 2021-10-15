@@ -29,7 +29,7 @@
 		"@types/postcss-flexbugs-fixes": "4.2.1",
 		"@types/postcss-url": "8.0.2",
 		"@types/webpack": "5.28.0",
-		"@types/yargs": "17.0.3",
+		"@types/yargs": "17.0.4",
 		"autoprefixer": "10.3.7",
 		"browser-sync": "2.27.5",
 		"browser-sync-webpack-plugin": "2.3.0",
