@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .tile {
 	font-size: 3.4375rem;
 	line-height: 2.6;
@@ -53,7 +55,7 @@
 		$power: pow($base, $exponent);
 
 		&.tile-#{$power} {
-			$gold-percent: ($exponent - 1) / ($limit - 1) * 100;
+			$gold-percent: math.div(($exponent - 1), ($limit - 1)) * 100;
 			$mixed-background: mix(#edc22e, #eee4da, $gold-percent);
 			$nth-color: nth($special-colors, $exponent);
 			$special-background: nth($nth-color, 1);
@@ -69,11 +71,11 @@
 
 			background: $mixed-background;
 
-			$glow-opacity: max($exponent - 4, 0) / ($limit - 4);
+			$glow-opacity: math.div(max($exponent - 4, 0), ($limit - 4));
 
 			@if not $special-background {
 				// prettier-ignore
-				box-shadow: 0 0 30px 10px rgba(lighten(#edc22e, 15%), $glow-opacity / 1.8), inset 0 0 0 1px rgba(white, $glow-opacity / 3);
+				box-shadow: 0 0 30px 10px rgba(lighten(#edc22e, 15%), math.div($glow-opacity, 1.8)), inset 0 0 0 1px rgba(white, math.div($glow-opacity, 3));
 			}
 
 			@if $power >= 100 and $power < 1000 {
