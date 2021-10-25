@@ -8,7 +8,7 @@
 	}
 
 	@if $exponent < 1 {
-		@for $i from 0 through -$exponent {
+		@for $i from 0 through (-1 * $exponent) {
 			$value: $value / $base;
 		}
 	}
