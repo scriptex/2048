@@ -1,4 +1,6 @@
+@use 'sass:list';
 @use 'sass:math';
+@use 'sass:color';
 
 .tile {
 	font-size: 3.4375rem;
@@ -38,13 +40,12 @@
 	$limit: 11;
 
 	// prettier-ignore
-	$special-colors:
-		false false, // 2
+	$special-colors: false false, // 2
 		false false, // 4
 		#f78e48 true, // 8
 		#fc5e2e true, // 16
-		#ff3333 true, // 32
-		#ff0000 true, // 64
+		#f33 true, // 32
+		#f00 true, // 64
 		false true, // 128
 		false true, // 256
 		false true, // 512
@@ -56,13 +57,13 @@
 
 		&.tile-#{$power} {
 			$gold-percent: math.div(($exponent - 1), ($limit - 1)) * 100;
-			$mixed-background: mix(#edc22e, #eee4da, $gold-percent);
-			$nth-color: nth($special-colors, $exponent);
-			$special-background: nth($nth-color, 1);
-			$bright-color: nth($nth-color, 2);
+			$mixed-background: color.mix(#edc22e, #eee4da, $gold-percent);
+			$nth-color: list.nth($special-colors, $exponent);
+			$special-background: list.nth($nth-color, 1);
+			$bright-color: list.nth($nth-color, 2);
 
 			@if $special-background {
-				$mixed-background: mix($special-background, $mixed-background, 55%);
+				$mixed-background: color.mix($special-background, $mixed-background, 55%);
 			}
 
 			@if $bright-color {
@@ -71,11 +72,11 @@
 
 			background: $mixed-background;
 
-			$glow-opacity: math.div(max($exponent - 4, 0), ($limit - 4));
+			$glow-opacity: math.div(math.max($exponent - 4, 0), ($limit - 4));
 
 			@if not $special-background {
 				// prettier-ignore
-				box-shadow: 0 0 30px 10px rgba(lighten(#edc22e, 15%), math.div($glow-opacity, 1.8)), inset 0 0 0 1px rgba(white, math.div($glow-opacity, 3));
+				box-shadow: 0 0 30px 10px rgba(color.adjust(#edc22e, $lightness: 15%), math.div($glow-opacity, 1.8)), inset 0 0 0 1px rgba(white, math.div($glow-opacity, 3)); // stylelint-disable-line
 			}
 
 			@if $power >= 100 and $power < 1000 {
