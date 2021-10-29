@@ -410,7 +410,7 @@
     "@types/browser-sync" "*"
     "@types/webpack" "^4"
 
-"@types/browser-sync@*", "@types/browser-sync@2.26.2":
+"@types/browser-sync@*":
   version "2.26.2"
   resolved "https://registry.yarnpkg.com/@types/browser-sync/-/browser-sync-2.26.2.tgz#0a58bf50d26c009aaff8826f2a6d16d5d97581ba"
   integrity sha512-IG8hyEIoK+lWLcXFiTo8m9RuN5/nWQVYNdSTtD/V2pxsVuP4XvmL4dcwufYrzw2IqRH+QEmCeCyyq4StJ8PpLw==
@@ -419,6 +419,16 @@
     "@types/node" "*"
     "@types/serve-static" "*"
     chokidar "^2.1.2"
+
+"@types/browser-sync@2.26.3":
+  version "2.26.3"
+  resolved "https://registry.yarnpkg.com/@types/browser-sync/-/browser-sync-2.26.3.tgz#d8a2c316144b55d5cb11328b7cb63dc1778de524"
+  integrity sha512-HIiI438D8q/DXFhdc2JELRMPtuHmR+0q+QNwP/mQoItHvPi7LK+bkZC7amKrSpnB2t4ct8BRd32LtOfd6TMNIw==
+  dependencies:
+    "@types/micromatch" "^2"
+    "@types/node" "*"
+    "@types/serve-static" "*"
+    chokidar "^3.0.0"
 
 "@types/cssnano@4.0.1":
   version "4.0.1"
@@ -1473,7 +1483,7 @@ change-case@^3.0.1:
     upper-case "^1.1.1"
     upper-case-first "^1.1.0"
 
-"chokidar@>=3.0.0 <4.0.0", chokidar@^3.5.1:
+"chokidar@>=3.0.0 <4.0.0", chokidar@^3.0.0, chokidar@^3.5.1:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.2.tgz#dba3976fcadb016f66fd365021d91600d01c1e75"
   integrity sha512-ekGhOnNVPgT77r4K/U3GDhu+FQ2S8TnK/s2KbIGXi0SZWuwkZ2QNyfWdZW+TVfn84DpEP7rLeCt2UI6bJ8GwbQ==
