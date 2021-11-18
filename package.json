@@ -25,7 +25,7 @@
 		"@types/cssnano": "4.0.1",
 		"@types/hammerjs": "2.0.40",
 		"@types/mini-css-extract-plugin": "2.4.0",
-		"@types/node": "16.11.7",
+		"@types/node": "16.11.8",
 		"@types/postcss-flexbugs-fixes": "4.2.1",
 		"@types/postcss-url": "8.0.2",
 		"@types/webpack": "5.28.0",
