@@ -544,13 +544,13 @@
   dependencies:
     postcss "^7.0.27"
 
-"@types/postcss-url@8.0.2":
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/@types/postcss-url/-/postcss-url-8.0.2.tgz#739be2912bb123f69d71cb690a45178d89d76930"
-  integrity sha512-5eMpnD6C02ZerfE/Omk1C/P+agin6jm8OBVP/7mQmRijhqJTPK9CR2k6p2Qi+9ux1ZDeVW/xYerxQqt2DqBrEg==
+"@types/postcss-url@10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@types/postcss-url/-/postcss-url-10.0.0.tgz#16dbb52a22bfa99361ab04ddee308bf7800cbb11"
+  integrity sha512-Ci0+xR7WUFw7K1z4qBml1+QJQmekD7B6fn5DTbb8X8Ud5gsVWvEsS5mmTHhyezgRtC60M1/EFuQRcvqNrGv/KQ==
   dependencies:
     "@types/node" "*"
-    postcss "7.x.x"
+    postcss "^8.0.0"
 
 "@types/serve-static@*":
   version "1.13.10"
@@ -5240,7 +5240,7 @@ postcss-watch-folder@2.0.0:
   resolved "https://registry.yarnpkg.com/postcss-watch-folder/-/postcss-watch-folder-2.0.0.tgz#0f0b22da8add6cc626be2fd86d099cc7c970b75f"
   integrity sha512-afXH6ow2TFIyCKmQiTjCbjzLOpc1cN4Tsr5J5hctLyQYfIo05pVIiADoKWOaHU8k3Axx/smL6x99Y4dDQyx7fA==
 
-"postcss@5 - 7", postcss@7.x.x, postcss@^7.0.17, postcss@^7.0.27, postcss@^7.0.6:
+"postcss@5 - 7", postcss@^7.0.17, postcss@^7.0.27, postcss@^7.0.6:
   version "7.0.39"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.39.tgz#9624375d965630e2e1f2c02a935c82a59cb48309"
   integrity sha512-yioayjNbHn6z1/Bywyb2Y4s3yvDAeXGOyxqD+LnVOinq6Mdmd++SW2wUNVzavyyHxd6+DxzWGIuosg6P1Rj8uA==
@@ -5248,7 +5248,7 @@ postcss-watch-folder@2.0.0:
     picocolors "^0.2.1"
     source-map "^0.6.1"
 
-postcss@8.4.4:
+postcss@8.4.4, postcss@^8.0.0:
   version "8.4.4"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.4.tgz#d53d4ec6a75fd62557a66bb41978bf47ff0c2869"
   integrity sha512-joU6fBsN6EIer28Lj6GDFoC/5yOZzLCfn0zHAn/MYXI7aPt4m4hK5KC5ovEZXy+lnCjmYIbQWngvju2ddyEr8Q==
