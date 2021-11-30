@@ -1,6 +1,5 @@
 // @ts-nocheck
 
-const { exec } = require('child_process');
 const { parse } = require('url');
 const { resolve } = require('path');
 
@@ -8,8 +7,8 @@ const { argv } = require('yargs');
 const webpack = require('webpack');
 const magicImporter = require('node-sass-magic-importer');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const cssnano = require('cssnano');
 const postcssURL = require('postcss-url');
@@ -20,14 +19,10 @@ const postcssMergeRules = require('postcss-merge-rules');
 const postcssWatchFolder = require('postcss-watch-folder');
 const postcssFlexbugsFixed = require('postcss-flexbugs-fixes');
 
-const { url, server, mode } = argv;
+const { mode } = argv;
 const sourceMap = {
 	sourceMap: mode === 'development'
 };
-
-if (server) {
-	exec('php index.php > index.html');
-}
 
 const postcssOptions = {
 	plugins: [postcssURL({ url: 'rebase' }), autoprefixer(), postcssUtilities, postcssEasyImport, postcssFlexbugsFixed],
@@ -38,23 +33,7 @@ const browserSyncConfig = {
 	host: 'localhost',
 	port: 3000,
 	open: 'external',
-	/* eslint-disable no-mixed-spaces-and-tabs */
-	files: [
-		server
-			? {
-					match: ['*.php'],
-					fn(_, file) {
-						const name = file.replace(/.php$/, '');
-
-						exec(`php ${file} > ${name}.html`);
-					}
-			  }
-			: '**/*.php',
-		'**/*.html',
-		'./assets/dist/app.css',
-		'./assets/dist/app.js'
-	],
-	/* eslint-enable */
+	files: ['**/*.html', './assets/dist/app.css', './assets/dist/app.js'],
 	ghostMode: {
 		clicks: false,
 		scroll: true,
@@ -74,16 +53,16 @@ const browserSyncConfig = {
 };
 
 const extractTextConfig = {
-	filename: 'dist/app.css'
+	filename: 'app.css'
 };
 
 const cleanConfig = {
-	verbose: false,
-	exclude: ['sprite.svg'],
-	allowExternal: true
+	cleanOnceBeforeBuildPatterns: ['**/*', '!sprite.svg']
 };
 
-module.exports = () => {
+module.exports = env => {
+	const { url, server } = env;
+
 	const isDevelopment = mode === 'development';
 	const isProduction = mode === 'production';
 
@@ -104,8 +83,8 @@ module.exports = () => {
 		mode: mode,
 		entry: ['./assets/styles/main.scss', './assets/scripts/main.ts'],
 		output: {
-			path: resolve(__dirname, './assets'),
-			filename: 'dist/app.js'
+			path: resolve(__dirname, './assets/dist'),
+			filename: 'app.js'
 		},
 		resolve: {
 			modules: ['node_modules', './assets/scripts', './assets/images/sprite'],
@@ -169,7 +148,7 @@ module.exports = () => {
 				'window.jQuery': 'jquery'
 			}),
 			new MiniCssExtractPlugin(extractTextConfig),
-			new CleanWebpackPlugin(['../assets/dist/'], cleanConfig)
+			new CleanWebpackPlugin(cleanConfig)
 		],
 		externals: {
 			jquery: 'jQuery'
