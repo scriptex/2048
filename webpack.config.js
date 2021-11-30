@@ -1,6 +1,5 @@
 // @ts-nocheck
 
-const { exec } = require('child_process');
 const { parse } = require('url');
 const { resolve } = require('path');
 
@@ -30,7 +29,7 @@ const postcssOptions = {
 	...sourceMap
 };
 
-const browserSyncConfig = server => ({
+const browserSyncConfig = {
 	host: 'localhost',
 	port: 3000,
 	open: 'external',
@@ -51,7 +50,7 @@ const browserSyncConfig = server => ({
 		}
 	},
 	proxy: 'localhost'
-});
+};
 
 const extractTextConfig = {
 	filename: 'app.css'
@@ -79,8 +78,6 @@ module.exports = env => {
 			})
 		);
 	}
-
-	const bsConfig = browserSyncConfig(server);
 
 	const config = {
 		mode: mode,
@@ -164,19 +161,19 @@ module.exports = env => {
 
 	if (isDevelopment) {
 		if (url) {
-			bsConfig.host = parse(url).hostname;
-			bsConfig.proxy = url;
+			browserSyncConfig.host = parse(url).hostname;
+			browserSyncConfig.proxy = url;
 		}
 
 		if (server) {
-			delete bsConfig.host;
-			delete bsConfig.proxy;
+			delete browserSyncConfig.host;
+			delete browserSyncConfig.proxy;
 
-			bsConfig.server = true;
+			browserSyncConfig.server = true;
 		}
 
 		config.plugins.push(
-			new BrowserSyncPlugin(bsConfig, {
+			new BrowserSyncPlugin(browserSyncConfig, {
 				reload: false
 			})
 		);
