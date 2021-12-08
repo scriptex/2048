@@ -40,7 +40,7 @@
 		"postcss-utilities": "0.8.4",
 		"postcss-watch-folder": "2.0.0",
 		"sass": "1.44.0",
-		"sass-loader": "12.3.0",
+		"sass-loader": "12.4.0",
 		"source-map-loader": "3.0.0",
 		"stylelint": "14.1.0",
 		"stylelint-config-recommended": "6.0.0",
