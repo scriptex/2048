@@ -26,7 +26,7 @@
 		"browser-sync-webpack-plugin": "2.3.0",
 		"clean-webpack-plugin": "4.0.0",
 		"create-pwa": "2.3.1",
-		"css-loader": "6.5.1",
+		"css-loader": "6.6.0",
 		"cssnano": "5.0.16",
 		"file-loader": "6.2.0",
 		"mini-css-extract-plugin": "2.5.3",
