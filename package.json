@@ -21,6 +21,7 @@
 	"devDependencies": {
 		"@three11/optisize": "2.0.0",
 		"@types/hammerjs": "2.0.41",
+		"@types/node": "17.0.16",
 		"autoprefixer": "10.4.2",
 		"browser-sync": "2.27.7",
 		"browser-sync-webpack-plugin": "2.3.0",
@@ -43,7 +44,7 @@
 		"sass-loader": "12.4.0",
 		"source-map-loader": "3.0.1",
 		"stylelint": "14.4.0",
-		"stylelint-config-recommended": "6.0.0",
+		"stylelint-config-recommended": "7.0.0",
 		"stylelint-config-standard-scss": "3.0.0",
 		"stylelint-no-unsupported-browser-features": "5.0.2",
 		"stylelint-scss": "4.1.0",
