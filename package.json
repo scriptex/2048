@@ -45,7 +45,7 @@
 		"source-map-loader": "3.0.1",
 		"stylelint": "14.8.5",
 		"stylelint-config-recommended": "7.0.0",
-		"stylelint-config-standard-scss": "3.0.0",
+		"stylelint-config-standard-scss": "4.0.0",
 		"stylelint-no-unsupported-browser-features": "5.0.3",
 		"stylelint-scss": "4.2.0",
 		"ts-loader": "9.3.0",
