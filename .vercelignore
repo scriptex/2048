@@ -18,7 +18,9 @@ ehthumbs.db
 Thumbs.db
 
 # Config folders and files
+.git
 .github
+.vercel
 _config.yml
 _.config.yml
 .editorconfig
