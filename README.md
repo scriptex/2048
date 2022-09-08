@@ -1,10 +1,31 @@
 # 2048
 
-[![Build Status](https://travis-ci.com/scriptex/2048.svg?branch=master)](https://travis-ci.com/scriptex/2048)
+[![Travis CI](https://travis-ci.com/scriptex/2048.svg?branch=master)](https://travis-ci.com/scriptex/2048)
+[![Github Build](https://github.com/scriptex/2048/workflows/Build/badge.svg)](https://github.com/scriptex/2048/actions?query=workflow%3ABuild)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/dc46a510b72e4ca5a9ed278889fbb4ac)](https://www.codacy.com/gh/scriptex/2048/dashboard?utm_source=github.com&utm_medium=referral&utm_content=scriptex/2048&utm_campaign=Badge_Grade)
+[![Codebeat badge](https://codebeat.co/badges/beea607c-a908-4e35-82f4-74c5a01fe678)](https://codebeat.co/projects/github-com-scriptex-2048-master)
+[![CodeFactor badge](https://www.codefactor.io/repository/github/scriptex/2048/badge)](https://www.codefactor.io/repository/github/scriptex/2048)
+[![DeepScan grade](https://deepscan.io/api/teams/3574/projects/5278/branches/40820/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=3574&pid=5278&bid=40820)
+[![Analytics](https://ga-beacon-361907.ew.r.appspot.com/UA-83446952-1/github.com/scriptex/2048/README.md?pixel)](https://github.com/scriptex/2048/)
 
 > A TypeScript implementation of the popular game
 
 [Click to play](https://scriptex.js.org/2048/)
+
+## Visitor stats
+
+![GitHub stars](https://img.shields.io/github/stars/scriptex/2048?style=social)
+![GitHub forks](https://img.shields.io/github/forks/scriptex/2048?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/scriptex/2048?style=social)
+![GitHub followers](https://img.shields.io/github/followers/scriptex?style=social)
+
+## Code stats
+
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/scriptex/2048)
+![GitHub repo size](https://img.shields.io/github/repo-size/scriptex/2048?style=plastic)
+![GitHub language count](https://img.shields.io/github/languages/count/scriptex/2048?style=plastic)
+![GitHub top language](https://img.shields.io/github/languages/top/scriptex/2048?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/scriptex/2048?style=plastic)
 
 ## License
 

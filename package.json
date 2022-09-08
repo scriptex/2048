@@ -1,23 +1,42 @@
 {
-	"author": {
-		"name": "Atanas Atanasov",
-		"email": "scriptex.bg@gmail.com",
-		"url": "https://atanas.info"
-	},
-	"browserslist": [
-		"> 1%",
-		"last 2 versions"
+	"name": "2048",
+	"version": "1.0.0",
+	"description": "Join the numbers and get to the 2048 tile!",
+	"keywords": [
+		"2048",
+		"1024",
+		"2048 Game",
+		"1024 Game",
+		"Tiles Game",
+		"JS Game"
 	],
+	"homepage": "https://2048.atanas.info",
 	"bugs": {
 		"url": "https://github.com/scriptex/2048/issues",
-		"email": "scriptex.bg@gmail.com"
+		"email": "hi@atanas.info"
+	},
+	"license": "MIT",
+	"author": "Atanas Atanasov <hi@atanas.info> (https://atanas.info)",
+	"funding": "https://github.com/sponsors/scriptex",
+	"main": "assets/scripts/main.ts",
+	"repository": {
+		"type": "git",
+		"url": "github:scriptex/2048"
+	},
+	"scripts": {
+		"start": "webpack --watch --mode=development",
+		"build": "webpack --mode=production",
+		"lint": "yarn lint:ts && yarn lint:scss",
+		"lint:scss": "stylelint assets/**/*.scss",
+		"lint:ts": "tslint -p tsconfig.json -c tslint.json 'assets/**/*.ts'",
+		"optisize": "optisize --src=\"./assets/images\"",
+		"pwa": "create-pwa --icon=\"./assets/images/icon.png\" --launch=\"./assets/images/launch.png\""
 	},
 	"dependencies": {
 		"hammerjs": "2.0.8",
 		"html-head-component": "1.1.0",
 		"scriptex-socials": "1.6.0"
 	},
-	"description": "Join the numbers and get to the 2048 tile!",
 	"devDependencies": {
 		"@three11/optisize": "2.0.0",
 		"@types/hammerjs": "2.0.41",
@@ -57,28 +76,9 @@
 		"webpack-cli": "4.10.0",
 		"yargs": "17.5.1"
 	},
-	"homepage": "https://github.com/scriptex/2048#readme",
-	"keywords": [
-		"2048",
-		"tiles",
-		"game"
-	],
-	"license": "MIT",
-	"main": "assets/scripts/main.ts",
-	"name": "2048",
 	"private": true,
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/scriptex/2048.git"
-	},
-	"scripts": {
-		"start": "webpack --watch --mode=development",
-		"build": "webpack --mode=production",
-		"lint": "yarn lint:ts && yarn lint:scss",
-		"lint:scss": "stylelint assets/**/*.scss",
-		"lint:ts": "tslint -p tsconfig.json -c tslint.json 'assets/**/*.ts'",
-		"optisize": "optisize --src=\"./assets/images\"",
-		"pwa": "create-pwa --icon=\"./assets/images/icon.png\" --launch=\"./assets/images/launch.png\""
-	},
-	"version": "1.0.0"
+	"browserslist": [
+		"> 1%",
+		"last 2 versions"
+	]
 }
