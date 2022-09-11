@@ -41,7 +41,7 @@
 		"@three11/optisize": "2.0.0",
 		"@types/hammerjs": "2.0.41",
 		"@types/node": "18.7.14",
-		"autoprefixer": "10.4.8",
+		"autoprefixer": "10.4.9",
 		"browser-sync": "2.27.10",
 		"browser-sync-webpack-plugin": "2.3.0",
 		"clean-webpack-plugin": "4.0.0",
