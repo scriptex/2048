@@ -34,7 +34,7 @@
 	},
 	"dependencies": {
 		"hammerjs": "2.0.8",
-		"html-head-component": "1.1.0",
+		"html-head-component": "1.2.0",
 		"scriptex-socials": "1.6.0"
 	},
 	"devDependencies": {
