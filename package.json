@@ -65,7 +65,7 @@
 		"stylelint": "14.11.0",
 		"stylelint-config-recommended": "9.0.0",
 		"stylelint-config-standard-scss": "5.0.0",
-		"stylelint-no-unsupported-browser-features": "5.0.3",
+		"stylelint-no-unsupported-browser-features": "5.0.4",
 		"stylelint-scss": "4.3.0",
 		"ts-loader": "9.3.1",
 		"ts-node": "10.9.1",
