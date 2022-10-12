@@ -12,5 +12,11 @@
 	},
 	"major": {
 		"automerge": false
-	}
+	},
+	"packageRules": [
+		{
+			"matchPackagePatterns": ["parcel"],
+			"groupName": "parcel"
+		}
+	]
 }

@@ -9,12 +9,12 @@
 		<meta name="mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 
-		<link rel="stylesheet" href="assets/dist/app.css" />
+		<link rel="stylesheet" href="styles/main.scss" />
 
-		<link rel="manifest" href="manifest.json" />
+		<link rel="manifest" href="../static/manifest.webmanifest" />
 	</head>
 	<body>
-		<html-head-component src="./meta.json" hidden></html-head-component>
+		<html-head-component src="meta.json" hidden></html-head-component>
 
 		<div class="container">
 			<header class="header">
@@ -77,6 +77,6 @@
 			<social-links></social-links>
 		</div>
 
-		<script src="assets/dist/app.js" async defer></script>
+		<script src="scripts/main.ts" type="module"></script>
 	</body>
 </html>
