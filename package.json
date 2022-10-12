@@ -5,10 +5,10 @@
 	"keywords": [
 		"2048",
 		"1024",
+		"JS Game",
 		"2048 Game",
 		"1024 Game",
-		"Tiles Game",
-		"JS Game"
+		"Tiles Game"
 	],
 	"homepage": "https://2048.atanas.info",
 	"bugs": {
@@ -18,19 +18,13 @@
 	"license": "MIT",
 	"author": "Atanas Atanasov <hi@atanas.info> (https://atanas.info)",
 	"funding": "https://github.com/sponsors/scriptex",
-	"main": "assets/scripts/main.ts",
 	"repository": {
 		"type": "git",
 		"url": "github:scriptex/2048"
 	},
 	"scripts": {
-		"start": "webpack --watch --mode=development",
-		"build": "webpack --mode=production",
-		"lint": "yarn lint:ts && yarn lint:scss",
-		"lint:scss": "stylelint assets/**/*.scss",
-		"lint:ts": "tslint -p tsconfig.json -c tslint.json 'assets/**/*.ts'",
-		"optisize": "optisize --src=\"./assets/images\"",
-		"pwa": "create-pwa --icon=\"./assets/images/icon.png\" --launch=\"./assets/images/launch.png\""
+		"start": "parcel src/index.html",
+		"build": "parcel build src/index.html"
 	},
 	"dependencies": {
 		"hammerjs": "2.0.8",
@@ -38,43 +32,14 @@
 		"scriptex-socials": "1.7.0"
 	},
 	"devDependencies": {
-		"@three11/optisize": "2.0.0",
+		"@parcel/packager-raw-url": "2.7.0",
+		"@parcel/transformer-sass": "2.7.0",
+		"@parcel/transformer-typescript-tsc": "^2.7.0",
+		"@parcel/transformer-webmanifest": "2.7.0",
 		"@types/hammerjs": "2.0.41",
-		"@types/node": "18.7.14",
-		"autoprefixer": "10.4.12",
-		"browser-sync": "2.27.10",
-		"browser-sync-webpack-plugin": "2.3.0",
-		"clean-webpack-plugin": "4.0.0",
-		"create-pwa": "2.6.0",
-		"css-loader": "6.7.1",
-		"cssnano": "5.1.13",
-		"file-loader": "6.2.0",
-		"mini-css-extract-plugin": "2.6.1",
-		"node-sass-magic-importer": "5.3.2",
-		"postcss": "8.4.17",
-		"postcss-easy-import": "4.0.0",
-		"postcss-flexbugs-fixes": "5.0.2",
-		"postcss-loader": "7.0.1",
-		"postcss-merge-rules": "5.1.2",
-		"postcss-url": "10.1.3",
-		"postcss-utilities": "0.8.4",
-		"postcss-watch-folder": "2.0.0",
-		"sass": "1.55.0",
-		"sass-loader": "13.1.0",
-		"source-map-loader": "4.0.1",
-		"stylelint": "14.13.0",
-		"stylelint-config-recommended": "9.0.0",
-		"stylelint-config-standard-scss": "5.0.0",
-		"stylelint-no-unsupported-browser-features": "6.0.1",
-		"stylelint-scss": "4.3.0",
-		"ts-loader": "9.4.1",
-		"ts-node": "10.9.1",
-		"tslint": "6.1.3",
-		"tslint-config-prettier": "1.18.0",
-		"typescript": "4.8.4",
-		"webpack": "5.74.0",
-		"webpack-cli": "4.10.0",
-		"yargs": "17.6.0"
+		"parcel": "^2.7.0",
+		"parcel-reporter-static-files-copy": "^1.4.0",
+		"typescript": "4.8.4"
 	},
 	"private": true,
 	"browserslist": [

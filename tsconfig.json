@@ -1,5 +1,7 @@
 {
 	"compilerOptions": {
+		"baseUrl": "./",
+		"paths": {},
 		"alwaysStrict": true,
 		"allowSyntheticDefaultImports": true,
 		"allowJs": false,
@@ -9,25 +11,30 @@
 		"experimentalDecorators": true,
 		"forceConsistentCasingInFileNames": true,
 		"importHelpers": true,
-		"lib": ["dom", "esNext"],
-		"noEmit": false,
 		"noEmitHelpers": true,
+		"jsx": "react",
+		"lib": ["dom", "ESNext"],
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"noEmit": false,
+		"noEmitOnError": true,
 		"noFallthroughCasesInSwitch": true,
-		"noImplicitAny": false,
+		"noImplicitAny": true,
 		"noImplicitReturns": true,
 		"noImplicitThis": true,
 		"noStrictGenericChecks": false,
-		"outDir": "./assets/dist/",
-		"pretty": true,
-		"removeComments": false,
-		"skipLibCheck": true,
-		"sourceMap": true,
 		"strict": true,
 		"strictBindCallApply": true,
 		"strictFunctionTypes": true,
 		"strictPropertyInitialization": true,
 		"strictNullChecks": true,
-		"target": "es5"
+		"pretty": true,
+		"removeComments": false,
+		"sourceMap": true,
+		"resolveJsonModule": true
 	},
-	"include": ["./assets/scripts/**/*"]
+	"compileOnSave": false,
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules"]
 }
