@@ -39,7 +39,7 @@
 		"@types/hammerjs": "2.0.41",
 		"parcel": "2.8.3",
 		"parcel-reporter-static-files-copy": "1.5.0",
-		"typescript": "5.0.3"
+		"typescript": "5.0.4"
 	},
 	"private": true,
 	"browserslist": [
