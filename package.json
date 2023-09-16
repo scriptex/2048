@@ -36,7 +36,7 @@
 		"@parcel/transformer-sass": "2.9.3",
 		"@parcel/transformer-typescript-tsc": "2.9.3",
 		"@parcel/transformer-webmanifest": "2.9.3",
-		"@types/hammerjs": "2.0.41",
+		"@types/hammerjs": "2.0.42",
 		"parcel": "2.9.3",
 		"parcel-reporter-static-files-copy": "1.5.2",
 		"typescript": "5.2.2"
