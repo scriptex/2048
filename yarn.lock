@@ -1614,10 +1614,10 @@ ordered-binary@^1.2.4, ordered-binary@^1.4.0:
   resolved "https://registry.yarnpkg.com/ordered-binary/-/ordered-binary-1.4.0.tgz#6bb53d44925f3b8afc33d1eed0fa15693b211389"
   integrity sha512-EHQ/jk4/a9hLupIKxTfUsQRej1Yd/0QLQs3vGvIqg5ZtCYSzNhkzHoZc7Zf4e4kUlDaC3Uw8Q/1opOLNN2OKRQ==
 
-parcel-reporter-static-files-copy@1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/parcel-reporter-static-files-copy/-/parcel-reporter-static-files-copy-1.5.2.tgz#aed0370717ea5d5185d6b09aea9cf9e6f479366c"
-  integrity sha512-NyIP8dOBj4WiZYAfKKTFWrMh8/kjrP72673G3hs7TOoT/30QWwUQpRA7oW4IxbjY2ICOo2sV06Z1lzPKCDbrGA==
+parcel-reporter-static-files-copy@1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/parcel-reporter-static-files-copy/-/parcel-reporter-static-files-copy-1.5.3.tgz#807493b7eadae9879eeb8c0d3792561cff9dea36"
+  integrity sha512-Ukq2SyJYn3GFIPCLamXuQ+2t+0j54llujjOUoRjtmVvfsuGnJDEpMznADeIoKuQDvy0jpxtWzWkQvxqI/j+U4A==
   dependencies:
     "@parcel/plugin" "^2.0.0-beta.1"
 

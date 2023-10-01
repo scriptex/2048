@@ -38,7 +38,7 @@
 		"@parcel/transformer-webmanifest": "2.9.3",
 		"@types/hammerjs": "2.0.42",
 		"parcel": "2.9.3",
-		"parcel-reporter-static-files-copy": "1.5.2",
+		"parcel-reporter-static-files-copy": "1.5.3",
 		"typescript": "5.2.2"
 	},
 	"private": true,
