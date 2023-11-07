@@ -1008,10 +1008,10 @@
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
-"@types/hammerjs@2.0.43":
-  version "2.0.43"
-  resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.43.tgz#8660dd1e0e5fd979395e2f999e670cdb9484d1e9"
-  integrity sha512-wqxfwHk83RS7+6OpytGdo5wqkqtvx+bGaIs1Rwm5NrtQHUfL4OgWs/5p0OipmjmT+fexePh37Ek+mqIpdNjQKA==
+"@types/hammerjs@2.0.44":
+  version "2.0.44"
+  resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.44.tgz#d90637ee049c4cf44cd8fa0072afca2124f947be"
+  integrity sha512-pdGBkAh4ggfXAkiwgmTdROJe3mwvLWJYm6JiaAwCtskAU0Weh+JQyyMTbhvxjxD2n8sr8PrxVwyDzmpnK4pUrQ==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
