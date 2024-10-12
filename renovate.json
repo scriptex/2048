@@ -18,5 +18,6 @@
 			"matchPackagePatterns": ["parcel"],
 			"groupName": "parcel"
 		}
-	]
+	],
+    "schedule": ["* * 1,15 * *"]
 }
