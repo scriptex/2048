@@ -1,6 +1,7 @@
 @use 'sass:list';
 @use 'sass:math';
 @use 'sass:color';
+@use 'tools' as *;
 
 .tile {
 	font-size: 3.4375rem;
@@ -57,7 +58,7 @@
 
 		&.tile-#{$power} {
 			$gold-percent: math.div(($exponent - 1), ($limit - 1)) * 100;
-			$mixed-background: color.mix(#edc22e, #eee4da, $gold-percent);
+			$mixed-background: color.mix(#edc22e, #eee4da, $gold-percent * 1%);
 			$nth-color: list.nth($special-colors, $exponent);
 			$special-background: list.nth($nth-color, 1);
 			$bright-color: list.nth($nth-color, 2);
