@@ -1,23 +1,30 @@
 {
-	"extends": ["config:base", ":automergePatch", ":automergeMinor", ":automergeBranch", ":disableDependencyDashboard"],
-	"travis": {
-		"enabled": true
-	},
-	"assignees": ["@scriptex"],
-	"labels": ["dependencies"],
-	"rebaseWhen": "conflicted",
-	"vulnerabilityAlerts": {
-		"labels": ["security"],
-		"assignees": ["@scriptex"]
-	},
-	"major": {
-		"automerge": false
-	},
-	"packageRules": [
-		{
-			"matchPackagePatterns": ["parcel"],
-			"groupName": "parcel"
-		}
-	],
-    "schedule": ["* * 1,15 * *"]
+  "extends": [
+    "config:base",
+    ":automergePatch",
+    ":automergeMinor",
+    ":automergeBranch",
+    ":disableDependencyDashboard",
+    "group:allNonMajor"
+  ],
+  "travis": {
+    "enabled": true
+  },
+  "assignees": ["@scriptex"],
+  "labels": ["dependencies"],
+  "rebaseWhen": "conflicted",
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "assignees": ["@scriptex"]
+  },
+  "major": {
+    "automerge": false
+  },
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["parcel"],
+      "groupName": "parcel"
+    }
+  ],
+  "schedule": ["* * 6,20 * *"]
 }
