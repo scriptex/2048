@@ -32,12 +32,12 @@
 		"scriptex-socials": "1.9.1"
 	},
 	"devDependencies": {
-		"@parcel/packager-raw-url": "2.15.4",
-		"@parcel/transformer-sass": "2.15.4",
-		"@parcel/transformer-typescript-tsc": "2.15.4",
-		"@parcel/transformer-webmanifest": "2.15.4",
+		"@parcel/packager-raw-url": "2.16.0",
+		"@parcel/transformer-sass": "2.16.0",
+		"@parcel/transformer-typescript-tsc": "2.16.0",
+		"@parcel/transformer-webmanifest": "2.16.0",
 		"@types/hammerjs": "2.0.46",
-		"parcel": "2.15.4",
+		"parcel": "2.16.0",
 		"parcel-reporter-static-files-copy": "1.5.3",
 		"typescript": "5.9.2"
 	},
